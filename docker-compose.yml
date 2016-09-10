@@ -1,6 +1,23 @@
 clubmatbackend:
     build: ./backend
+    volumes:
+      - ./backend/clubmat-backend:/clubmat-backend
+    links:
+      - clubmatdb
 clubmatfrontend:
     build: ./frontend
+    volumes:
+      - ./frontend/code:/code
 clubmatdb:
     build: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+clubmatlb:
+    build: ./nginx
+    links:
+      - clubmatbackend
+      - clubmatfrontend
+    ports:
+        - "80:80"

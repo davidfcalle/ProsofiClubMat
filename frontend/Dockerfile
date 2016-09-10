@@ -1,2 +1,12 @@
 FROM node:5
-EXPOSE 80
+
+MAINTAINER David Calle "davidfcalle@gmail.com"
+
+COPY ./code/package.json ./code/typings.json /code/
+
+WORKDIR /code
+RUN npm install
+
+
+ENTRYPOINT ["npm", "start"]
+EXPOSE 3000
