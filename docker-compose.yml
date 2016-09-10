@@ -1,0 +1,6 @@
+clubmatbackend:
+    build: ./backend
+clubmatfrontend:
+    build: ./frontend
+clubmatdb:
+    build: ./db
