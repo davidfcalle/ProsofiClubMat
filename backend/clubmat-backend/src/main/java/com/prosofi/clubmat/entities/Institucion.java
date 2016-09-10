@@ -1,89 +1,115 @@
 package com.prosofi.clubmat.entities;
 
-import javax.persistence.CascadeType;
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.FetchType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
-public class Institucion {
-	
-	
-    @Id
+@Entity
+@Table(name = "institucion")
+@XmlRootElement
+public class Institucion implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	@Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "idinstitucion")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer idinstitucion;
+	 
+	
+    @Size(max = 30)
+    @Column(name = "nombre")
+    private String nombre;
     
-    @Size(min = 4)
-    @Column(unique = true, nullable = false, length = 60)
-    private String nombreinst;
-    
-    @Size(min = 3)
-    @Column(nullable = false, length = 40)
-    private String localidad;
-    
-    @Size(min = 4)
-    @Column(nullable = false, length = 100)
-    private String direccion;
-    
-    @Size(min = 4)
-    @Column(nullable = false, length = 40)
-    private String telefono;
-    
-    @Size(min = 4)
-    @Column(nullable = false, length = 60)
-    private String rector;
-    
-    @Size(min = 3)
-    @Column(nullable = false, length = 40)
-    private String tipoinstitucion;
-    
-    @Size(min = 4)
-    @Column(nullable = false, length = 30)
+    @Size(max = 30)
+    @Column(name = "ciudad")
     private String ciudad;
     
-    @JoinColumn(unique = true, name = "creador", referencedColumnName = "id", nullable = false)
-    @OneToOne
-    private Usuario creador;
+    @Size(max = 15)
+    @Column(name = "localidad")
+    private String localidad;
     
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "institucion", fetch = FetchType.LAZY)
-    private ClubMatematicas club;
+    @Size(max = 50)
+    @Column(name = "direccion")
+    private String direccion;
+    
+    @Column(name = "telefono")
+    private Integer telefono;
+    
+    @Size(max = 50)
+    @Column(name = "rector")
+    private String rector;
+    
+    @Size(max = 30)
+    @Column(name = "tipo")
+    private String tipo;
+    
+    @OneToMany(mappedBy = "idinstitucion")
+    private List<Clubmatematicas> clubmatematicasList;
 
+
+    public String getRector() {
+        return rector;
+    }
+
+    public void setRector(String rector) {
+        this.rector = rector;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
     public Institucion() {
     }
 
-    public Institucion(Long id) {
-        this.id = id;
+    public Institucion(Integer idinstitucion) {
+        this.idinstitucion = idinstitucion;
     }
 
-    public Institucion( String nombreinst, String ciudad, String localidad, String direccion, String telefono, String rector, String tipoinstitucion, Usuario creador) {
-        this.nombreinst = nombreinst;
+    public Integer getIdinstitucion() {
+        return idinstitucion;
+    }
+
+    public void setIdinstitucion(Integer idinstitucion) {
+        this.idinstitucion = idinstitucion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
-        this.localidad = localidad;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.rector = rector;
-        this.tipoinstitucion = tipoinstitucion;
-        this.creador = creador;
-    }
-
-    public Long getIdinstitucion() {
-        return id;
-    }
-
-    public void setIdinstitucion(Long idinstitucion) {
-        this.id = idinstitucion;
-    }
-
-    public String getNombreinst() {
-        return nombreinst;
-    }
-
-    public void setNombreinst(String nombreinst) {
-        this.nombreinst = nombreinst;
     }
 
     public String getLocalidad() {
@@ -102,68 +128,37 @@ public class Institucion {
         this.direccion = direccion;
     }
 
-    public String getTelefono() {
+    public Integer getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(Integer telefono) {
         this.telefono = telefono;
     }
-
-    public String getRector() {
-        return rector;
-    }
-
-    public void setRector(String rector) {
-        this.rector = rector;
-    }
-
-    public Usuario getCreador() {
-        return creador;
-    }
-
-    public void setCreador(Usuario registrador) {
-        this.creador = registrador;
-    }
     
-    public String getTipoinstitucion() {
-        return tipoinstitucion;
+    public List<Clubmatematicas> getClubmatematicasList() {
+        return clubmatematicasList;
     }
 
-    public void setTipoinstitucion(String tipoinstitucion) {
-        this.tipoinstitucion = tipoinstitucion;
-    }
-
-    public ClubMatematicas getClub() {
-        return club;
-    }
-
-    public void setClub(ClubMatematicas club) {
-        this.club = club;
+    public void setClubmatematicasList(List<Clubmatematicas> clubmatematicasList) {
+        this.clubmatematicasList = clubmatematicasList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (idinstitucion != null ? idinstitucion.hashCode() : 0);
         return hash;
-    }
-    
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
     }
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Institucion)) {
             return false;
         }
         Institucion other = (Institucion) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.idinstitucion == null && other.idinstitucion != null) || (this.idinstitucion != null && !this.idinstitucion.equals(other.idinstitucion))) {
             return false;
         }
         return true;
@@ -171,6 +166,6 @@ public class Institucion {
 
     @Override
     public String toString() {
-        return "JPA.Institucion[ id=" + id + " ]";
+        return "co.edu.javeriana.clubmat.entidades.Institucion[ idinstitucion=" + idinstitucion + " ]";
     }
 }
