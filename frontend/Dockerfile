@@ -6,6 +6,7 @@ COPY ./code/package.json ./code/typings.json /code/
 
 WORKDIR /code
 RUN npm install
+RUN rm -rf *.json
 
 
 ENTRYPOINT ["npm", "start"]

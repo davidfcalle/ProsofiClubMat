@@ -1,4 +1,1 @@
-docker build -t clubmatfrontend .
-docker run --name clubmatfrontend \
-	--link db:db \
-	-d clubmatfrontend bash
+docker run -ti --entrypoint=bash -v $(pwd)/frontend/code:/code clubmat_clubmatfrontend bash
