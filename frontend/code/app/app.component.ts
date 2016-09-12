@@ -16,9 +16,6 @@ import { Component } from '@angular/core';
                                     <h1 class="login-title"> Prosofi Clubmat </h1>
                                     <form action="" class="signup-form">
                                         <h2> Regístrate como administrador o participante de una olimpiada </h2>
-                                        <div class="section">
-                                            <a class="btn btn-fb hide-on-med-and-up"> Iniciar Sesión </a>
-                                        </div>
                                         <div class="divider"></div>
                                         <div class="section">
                                             <input type="text" name="username" placeholder="Nombre de Usuario" />

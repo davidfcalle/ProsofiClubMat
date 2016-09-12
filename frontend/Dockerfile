@@ -6,6 +6,7 @@ COPY ./code/package.json ./code/typings.json /code/
 
 WORKDIR /code
 RUN npm install
+RUN ["npm", "run", "typings", "install"]
 RUN rm -rf *.json
 
 

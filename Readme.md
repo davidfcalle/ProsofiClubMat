@@ -16,5 +16,39 @@ La base de datos que se utilizará en MySQL 5.7
 
 Los dockerfiles que se encuentran definidos son para llevar la aplicación a producción y no están diseñados (aunque pueden funcionar) en desarrollo. Sin embargo, en estos se declaran las dependencias necesarias para montar un entorno de desarrollo
 
-##Nota importante
-Es necesario arreglar esto en el futuro, pero apenas se clone el repositorio es necesario ejecutar sudo chmod -R . 777, para que se los contenedores puedan leer y cambiar datos de los volúmenes
+# Cómo Ejecutar la aplicación
+
+## Prerrequisitos
+
+* docker >= v1.12
+* docker-compose >= 1.7
+
+# Proceso de ejecución
+
+Clonar el repositorio, cambiarle el nombre de la carpeta a clubmat y cambiar de directorio
+
+```sh
+$    git clone https://github.com/davidfcalle/ProsofiClubMat.git clubmat && cd clubmat
+```
+
+
+
+Crear las imagenes
+
+```sh
+$    docker-compose build
+```
+
+Ejecutar los contenedores, dada la naturaleza de Java, es posible que el contedor de Java se demore un poco en ejecutarse, en comparación a los demás.
+
+```sh
+$    docker-compose up -d
+```
+
+
+#Comandos útiles
+Eejcutar comandos sobre un contedor que ya está corriendo 
+
+```sh
+$    docker exec -ti <nombre_contenedor> <comando>
+```

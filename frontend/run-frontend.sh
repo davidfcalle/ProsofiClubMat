@@ -1,1 +1,0 @@
-docker run -ti --entrypoint=bash -v $(pwd)/frontend/code:/code clubmat_clubmatfrontend bash
