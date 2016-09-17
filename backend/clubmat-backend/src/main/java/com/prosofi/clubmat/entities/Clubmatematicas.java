@@ -18,6 +18,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "clubmatematicas")
@@ -48,24 +50,36 @@ public class Clubmatematicas implements Serializable {
     @Column(name = "porcentajereglas")
     private String porcentajeReglas;
     
+    
+    @JsonIgnore
     @Lob
     @Column(name = "foto")
     private byte[] foto;
     
     
+    @JsonIgnore
     @OneToMany(mappedBy = "idclub")
     private List<Olimpiada> olimpiadaList;
     
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "idclub")
     private List<Noticia> noticiaList;
     
+    
+    
+    @JsonIgnore
     @JoinColumn(name = "idinstitucion", referencedColumnName = "idinstitucion")
     @ManyToOne
     private Institucion idinstitucion;
     
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "idclub")
     private List<Usuario> usuarioList;
     
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "idclub")
     private List<Reglacreacion> reglacreacionList;
     

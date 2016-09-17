@@ -2,7 +2,6 @@ package com.prosofi.clubmat.entities;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,10 +12,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "usuario")
@@ -26,8 +26,6 @@ public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "idusuario")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idusuario;
@@ -65,20 +63,28 @@ public class Usuario implements Serializable {
     @Column(name = "contrasena")
     private String contrasena;  
     
+    @JsonIgnore
     @ManyToMany(mappedBy = "usuarioList")
     private List<Olimpiada> olimpiadaList;
     
+    @JsonIgnore
     @JoinColumn(name = "idclub", referencedColumnName = "idclub")
     @ManyToOne
     private Clubmatematicas idclub;
     
+    
+    @JsonIgnore
     @JoinColumn(name = "idinstitucion", referencedColumnName = "idinstitucion")
     @ManyToOne
     private Institucion idinstitucion;
     
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "idusuario")
     private List<Prueba> pruebaList;
     
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "idusuario")
     private List<UsuarioOlimpiada> usuarioOlimpiadaList;
    

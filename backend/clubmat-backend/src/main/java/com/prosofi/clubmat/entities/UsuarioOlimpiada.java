@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author julianortega
@@ -32,10 +34,12 @@ public class UsuarioOlimpiada implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idusuariolimpiada;
     
+    @JsonIgnore
     @JoinColumn(name = "idolimpiada", referencedColumnName = "idolimpiada")
     @ManyToOne
     private Olimpiada idolimpiada;
     
+    @JsonIgnore
     @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
     @ManyToOne
     private Usuario idusuario;
