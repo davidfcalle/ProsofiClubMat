@@ -1,3 +1,36 @@
+$primary-color: #125688;
+$placeholder-text-color: #a5a7aa;
+
 @import "node_modules/materialize-css/sass/materialize.scss";
 
-$main-color: #f345ed;
+$secondary-color: #fafafa;
+$h2-color: #a5a7aa;
+
+
+body {
+  background: $secondary-color;
+  color: $primary-color;
+  font-family: Montserrat
+}
+
+
+.login-image{
+    max-width: 100%;
+}
+
+.login-title{
+  font-size: 3.3em;
+}
+
+#main-container {
+  margin: 30px auto;
+}
+
+.signup-form h2 {
+  color: $h2-color;
+  font-size: 1.2em;
+}
+
+.btn-signup{
+    background-color: $primary-color;
+}

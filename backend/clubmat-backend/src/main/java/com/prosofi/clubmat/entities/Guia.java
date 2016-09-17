@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "guia")
 @XmlRootElement
@@ -39,6 +41,8 @@ public class Guia implements Serializable {
     @Column(name = "comentarios")
     private String comentarios;
     
+    
+    @JsonIgnore
     @Lob
     @Column(name = "documento")    
     private byte[] documento;

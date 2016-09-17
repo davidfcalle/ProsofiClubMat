@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "reglacreacion")
 @XmlRootElement
@@ -25,15 +27,21 @@ public class Reglacreacion {
     @Column(name = "idregla")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idregla;
+	
     @Size(max = 50)
     @Column(name = "nombre")
     private String nombre;
+    
     @Size(max = 30)
     @Column(name = "estado")
     private String estado;
+    
+    @JsonIgnore
     @JoinColumn(name = "idclub", referencedColumnName = "idclub")
     @ManyToOne
     private Clubmatematicas idclub;
+    
+    @JsonIgnore
     @Lob
     @Column(name = "documento")    
     private byte[] documento;

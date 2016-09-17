@@ -5,4 +5,4 @@ MAINTAINER David Calle "davidfcalle@gmail.com"
 WORKDIR /clubmat-backend
 
 ENTRYPOINT ["./gradlew", "bootRun"]
-EXPOSE 80
+EXPOSE 8080

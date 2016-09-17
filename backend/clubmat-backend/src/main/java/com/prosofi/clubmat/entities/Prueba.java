@@ -21,6 +21,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "prueba")
 @XmlRootElement
@@ -56,13 +58,19 @@ public class Prueba implements Serializable{
     @Column(name = "tipoprueba")
     private String tipoprueba;
     
+    
+    @JsonIgnore
     @ManyToMany(mappedBy = "pruebaList")
     private List<Pregunta> preguntaList; 
     
+    
+    @JsonIgnore
     @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
     @ManyToOne
     private Usuario idusuario;
     
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "idprueba")
     private List<Olimpiada> olimpiadaList;
 

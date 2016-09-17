@@ -8,6 +8,8 @@ clubmatfrontend:
     build: ./frontend
     volumes:
       - ./frontend/code:/code
+      - /code/node_modules
+      - /code/typings
 clubmatdb:
     build: ./db
     environment:
