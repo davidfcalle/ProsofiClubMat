@@ -1,9 +1,12 @@
 var express = require('express');
+var path = require('path');
 
 var app = express();
-app.use(express.static('public'));
-app.use(express.static('node_modules'));
-app.use(express.static(__dirname +'/systemjs.config.js'))
+
+app.use('/public',express.static(path.join(__dirname, 'public/')));
+app.use('/node_modules',express.static(path.join(__dirname, 'node_modules/')));
+app.use('/app',express.static(path.join(__dirname, 'app/')));
+app.use('/images',express.static(path.join(__dirname, 'images/')));
 
 app.set('view engine', 'pug');
 
