@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 import  { Usuario } from '../models/usuario';
 
 @Injectable()
-export class UserService{
+export class UserService {
 
     private usersUrl: string = 'api/usuario';
     private headers: Headers;

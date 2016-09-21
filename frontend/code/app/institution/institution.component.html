@@ -1,0 +1,48 @@
+<div class="container center"> 
+    <h3>Instituciones Inscritas</h3>
+    <p>
+        Las siguientes son las instituciones asociadas a CLUBMAT. Si quieres que tu institución forme parte de esta comunidad. Comunícate con Nosotros.
+    </p>
+</div>
+<div class="row">
+    <div class="offset-m1 offset-l1 col s12 m10 l10"> 
+        <div> 
+            <table class ="responsive-table centered">
+                <thead class = "indigo accent-2 white-text">
+                <tr>
+                    <th>Id</th>
+                    <th data-field="name">Nombre</th>
+                    <th data-field="name">Ciudad</th>
+                    <th data-field="name">Localidad</th>
+                    <th data-field="name">Dirección</th>
+                    <th data-field="name">Teléfono</th>
+                    <th data-field="name">Rector</th>
+                    <th data-field="name">Tipo</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr *ngFor="let inst of institutions" (click)="changeSelectedIntitution(inst)" [class.selected-inst]="selectedIns == inst">
+                    <td>{{inst.idinstitucion}}</td>
+                    <td>{{inst.nombre}}</td>
+                    <td>{{inst.ciudad}}</td>
+                    <td>{{inst.localidad}}</td>
+                    <td>{{inst.direccion}}</td>
+                    <td>{{inst.telefono}}</td>
+                    <td>{{inst.rector}}</td>
+                    <td>{{inst.tipo}}</td>           
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class = "col s12 m5 l5 offset-m1 offset-l1">
+        <a class="waves-effect btn blue lighten-2 col s12 m5 l5 btn" routerLink="/instituciones/crear">Crear Institución</a>  
+        <a class="waves-effect btn blue col s12 m5 l5 offset-m1 offset-l1 btn" (click)="editCurrentInstitution()" >Editar Institución</a>  
+    </div>
+    <div class="col s12 m5 l5">
+        <a class="waves-effect btn blue darken-2 col s12 m5 l5 btn" (click)="deleteInstitution()">Eliminar Institución</a> 
+        <a class="waves-effect btn blue darken-4 col s12 m6 l6 offset-m1 offset-l1" (click)="goBack()">Volver</a>   
+    </div>
+</div>

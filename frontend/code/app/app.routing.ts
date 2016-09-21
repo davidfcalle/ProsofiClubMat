@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { InstitutionListComponent} from './institution/institution.component'
+import { InstitutionCreateComponent} from './institution/institution.create.component'
+import { InstitutionEditComponent} from './institution/institution.edit.component'
+ 
 
 const appRoutes: Routes = [
   {
@@ -12,6 +16,18 @@ const appRoutes: Routes = [
   {
     path: 'signin',
     component: SigninComponent
+  },
+  {
+    path: 'instituciones',
+    component: InstitutionListComponent
+  },
+   {
+    path: 'instituciones/crear',
+    component: InstitutionCreateComponent
+  },
+  {
+    path: 'instituciones/:id/editar',
+    component: InstitutionEditComponent
   },
   {
     path: '',

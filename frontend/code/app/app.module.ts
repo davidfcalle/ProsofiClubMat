@@ -10,8 +10,12 @@ import { routing } from './app.routing';
 import { AppComponent }  from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component'
+import { InstitutionListComponent } from './institution/institution.component'
+import { InstitutionCreateComponent } from './institution/institution.create.component'
+import { InstitutionEditComponent } from './institution/institution.edit.component'
 
 import { UserService } from './services/user.service';
+import { InstitutionService } from './services/institution.service';
 
 @NgModule({
   imports: [ 
@@ -24,9 +28,13 @@ import { UserService } from './services/user.service';
     AppComponent,
     SignupComponent,
     SigninComponent,
+    InstitutionListComponent,
+    InstitutionCreateComponent,
+    InstitutionEditComponent
   ],
   providers:[
-    UserService
+    UserService,
+    InstitutionService
   ],
   bootstrap: [ AppComponent ]
 })

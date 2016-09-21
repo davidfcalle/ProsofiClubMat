@@ -1,0 +1,32 @@
+<section id="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 push-s1">
+                    <div class="row">
+                         <div class="col s12 m7">
+                            <div class="row">
+                                <div class="signup-box">
+                                    <h1 class="login-title"> Editar Institución </h1>
+                                    <form action="" class="signup-form" (ngSubmit)="onSubmit()">
+                                        <h2>Modifica la informaci&oacute;n de una institución registrada</h2>
+                                        <div class="divider"></div>
+                                        <div class="section">
+                                            <input [(ngModel)]="institution.nombre" name="nombre" type="text"  placeholder="Nombre" required="" class="validate"/>
+                                            <input [(ngModel)]="institution.telefono" name="telefono" type="number" placeholder="Teléfono" />
+                                            <input [(ngModel)]="institution.localidad" name="localidad" type="text" placeholder="Localidad" />
+                                            <input [(ngModel)]="institution.direccion" name="direccion" type="text" placeholder="Direccion" />
+                                            <input [(ngModel)]="institution.ciudad" name="ciudad" type="text" placeholder="Ciudad" />
+                                            <input [(ngModel)]="institution.tipo" name="tipo" type="text" placeholder="Tipo" />
+                                            <input [(ngModel)]="institution.rector" name="rector" type="text" placeholder="Rector" />
+                                            
+                                            <button class="btn waves-effect waves-light btn-signup" type="submit"> Crear Usuario </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

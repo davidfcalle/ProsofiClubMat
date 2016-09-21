@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.prosofi.clubmat.ClubmatBackendApplicationTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2016-09-20T20:56:42" hostname="david-700Z3C-700Z5C" time="0.005">
+  <properties/>
+  <testcase name="contextLoads" classname="com.prosofi.clubmat.ClubmatBackendApplicationTests" time="0.005">
+    <failure message="java.lang.IllegalStateException: Failed to load ApplicationContext" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:112)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:56)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:66)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:364)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1076)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:851)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:111)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 45 more
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:208)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:847)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:874)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:338)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574)
+	... 60 more
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:137)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:234)
+	... 76 more
+</failure>
+  </testcase>
+  <system-out><![CDATA[15:56:34.311 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.prosofi.clubmat.ClubmatBackendApplicationTests]
+15:56:34.317 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+15:56:34.333 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+15:56:34.351 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.prosofi.clubmat.ClubmatBackendApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+15:56:34.369 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.prosofi.clubmat.ClubmatBackendApplicationTests], using SpringBootContextLoader
+15:56:34.375 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.prosofi.clubmat.ClubmatBackendApplicationTests]: class path resource [com/prosofi/clubmat/ClubmatBackendApplicationTests-context.xml] does not exist
+15:56:34.376 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.prosofi.clubmat.ClubmatBackendApplicationTests]: class path resource [com/prosofi/clubmat/ClubmatBackendApplicationTestsContext.groovy] does not exist
+15:56:34.376 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.prosofi.clubmat.ClubmatBackendApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:56:34.377 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.prosofi.clubmat.ClubmatBackendApplicationTests]: ClubmatBackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:56:34.428 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.prosofi.clubmat.ClubmatBackendApplicationTests]
+15:56:34.480 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+15:56:34.481 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+15:56:34.482 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+15:56:34.493 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/prosofi/clubmat/] to resources [URL [file:/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/test/com/prosofi/clubmat/], URL [file:/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/main/com/prosofi/clubmat/]]
+15:56:34.494 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/test/com/prosofi/clubmat]
+15:56:34.494 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/test/com/prosofi/clubmat] for files matching pattern [/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/test/com/prosofi/clubmat/*.class]
+15:56:34.498 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/main/com/prosofi/clubmat]
+15:56:34.498 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/main/com/prosofi/clubmat] for files matching pattern [/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/main/com/prosofi/clubmat/*.class]
+15:56:34.500 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/prosofi/clubmat/*.class] to resources [file [/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/test/com/prosofi/clubmat/ClubmatBackendApplicationTests.class], file [/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/main/com/prosofi/clubmat/ClubmatBackendApplication.class]]
+15:56:34.553 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/david/PSU/clubmat/backend/clubmat-backend/build/classes/main/com/prosofi/clubmat/ClubmatBackendApplication.class]
+15:56:34.554 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.prosofi.clubmat.ClubmatBackendApplication for test class com.prosofi.clubmat.ClubmatBackendApplicationTests
+15:56:34.561 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.prosofi.clubmat.ClubmatBackendApplicationTests]: using defaults.
+15:56:34.568 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.AutoConfigureReportTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+15:56:34.587 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@63151152, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@559ad58f, org.springframework.boot.test.autoconfigure.AutoConfigureReportTestExecutionListener@6265ca11, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@11793940, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5aad35bc, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5918b5cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@15e1c9bb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4d0a517e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7eb99db6, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6293c947, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@79a468bf]
+15:56:34.590 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.prosofi.clubmat.ClubmatBackendApplicationTests]
+15:56:34.591 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.prosofi.clubmat.ClubmatBackendApplicationTests]
+15:56:34.592 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.prosofi.clubmat.ClubmatBackendApplicationTests]
+15:56:34.592 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.prosofi.clubmat.ClubmatBackendApplicationTests]
+15:56:34.601 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@25735ec7 testClass = ClubmatBackendApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7114d27a testClass = ClubmatBackendApplicationTests, locations = '{}', classes = '{class com.prosofi.clubmat.ClubmatBackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@7b924ee0, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@43f9d318, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+15:56:34.602 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.prosofi.clubmat.ClubmatBackendApplicationTests]
+15:56:34.602 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.prosofi.clubmat.ClubmatBackendApplicationTests]
+15:56:34.637 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+15:56:34.637 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+15:56:34.638 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+15:56:34.640 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+15:56:34.640 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [Inlined Test Properties] PropertySource with highest search precedence
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.4.0.RELEASE)
+
+2016-09-20 15:56:35.234  INFO 7819 --- [    Test worker] c.p.c.ClubmatBackendApplicationTests     : Starting ClubmatBackendApplicationTests on david-700Z3C-700Z5C with PID 7819 (started by root in /home/david/PSU/clubmat/backend/clubmat-backend)
+2016-09-20 15:56:35.236  INFO 7819 --- [    Test worker] c.p.c.ClubmatBackendApplicationTests     : No active profile set, falling back to default profiles: default
+2016-09-20 15:56:35.361  INFO 7819 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5d04b05e: startup date [Tue Sep 20 15:56:35 COT 2016]; root of context hierarchy
+2016-09-20 15:56:39.106  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4151f154] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.439  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'spring.data.rest-org.springframework.boot.autoconfigure.data.rest.RepositoryRestProperties' of type [class org.springframework.boot.autoconfigure.data.rest.RepositoryRestProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.489  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'restApiConfiguration' of type [class com.prosofi.clubmat.configuration.RestApiConfiguration$$EnhancerBySpringCGLIB$$6b50a814] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.504  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'repositoryRestConfigurer' of type [class com.prosofi.clubmat.configuration.RestApiConfiguration$1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.511  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.rest.RepositoryRestMvcAutoConfiguration' of type [class org.springframework.boot.autoconfigure.data.rest.RepositoryRestMvcAutoConfiguration$$EnhancerBySpringCGLIB$$7f604246] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.569  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'spring.jackson-org.springframework.boot.autoconfigure.jackson.JacksonProperties' of type [class org.springframework.boot.autoconfigure.jackson.JacksonProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.582  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration' of type [class org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration$$EnhancerBySpringCGLIB$$a4918ed] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.601  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'standardJacksonObjectMapperBuilderCustomizer' of type [class org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration$StandardJackson2ObjectMapperBuilderCustomizer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.612  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration' of type [class org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration$$EnhancerBySpringCGLIB$$4f3232fe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.633  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration' of type [class org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$$EnhancerBySpringCGLIB$$7ef10e74] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.679  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'jsonComponentModule' of type [class org.springframework.boot.jackson.JsonComponentModule] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.688  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.data.web.config.SpringDataJacksonConfiguration' of type [class org.springframework.data.web.config.SpringDataJacksonConfiguration$$EnhancerBySpringCGLIB$$79f86528] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.707  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'jacksonGeoModule' of type [class org.springframework.data.geo.GeoModule] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.716  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'jacksonObjectMapperBuilder' of type [class org.springframework.http.converter.json.Jackson2ObjectMapperBuilder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.718  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'springBootRepositoryRestConfigurer' of type [class org.springframework.boot.autoconfigure.data.rest.SpringBootRepositoryRestConfigurer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.732  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'defaultRelProvider' of type [class org.springframework.hateoas.core.EvoInflectorRelProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.737  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'annotationRelProvider' of type [class org.springframework.hateoas.core.AnnotationRelProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.754  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean '(inner bean)#54fa2401' of type [class org.springframework.plugin.core.support.PluginRegistryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.773  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean '(inner bean)#54fa2401' of type [class org.springframework.plugin.core.OrderAwarePluginRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.779  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean '_relProvider' of type [class org.springframework.hateoas.core.DelegatingRelProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:39.785  INFO 7819 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.rest.SpringBootRepositoryRestMvcConfiguration' of type [class org.springframework.boot.autoconfigure.data.rest.SpringBootRepositoryRestMvcConfiguration$$EnhancerBySpringCGLIB$$c74dba74] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-20 15:56:40.785  INFO 7819 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-09-20 15:56:40.844  INFO 7819 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-09-20 15:56:40.984  INFO 7819 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.9.Final}
+2016-09-20 15:56:40.986  INFO 7819 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2016-09-20 15:56:40.988  INFO 7819 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2016-09-20 15:56:41.077  INFO 7819 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-09-20 15:56:42.026 ERROR 7819 --- [    Test worker] o.a.tomcat.jdbc.pool.ConnectionPool      : Unable to create initial connections of pool.
+
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_60]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422) ~[na:1.8.0_60]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:988) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2251) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2284) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2083) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:806) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_60]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422) ~[na:1.8.0_60]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:410) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:328) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:310) ~[tomcat-jdbc-8.5.4.jar:na]
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:203) ~[tomcat-jdbc-8.5.4.jar:na]
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:716) [tomcat-jdbc-8.5.4.jar:na]
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:648) [tomcat-jdbc-8.5.4.jar:na]
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:468) [tomcat-jdbc-8.5.4.jar:na]
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:143) [tomcat-jdbc-8.5.4.jar:na]
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:118) [tomcat-jdbc-8.5.4.jar:na]
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:107) [tomcat-jdbc-8.5.4.jar:na]
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:131) [tomcat-jdbc-8.5.4.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:234) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:208) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111) [hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:847) [hibernate-entitymanager-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:874) [hibernate-entitymanager-5.0.9.Final.jar:5.0.9.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60) [spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:338) [spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373) [spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362) [spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637) [spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574) [spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) [spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) [spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) [spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) [spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) [spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) [spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1076) [spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:851) [spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) [spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369) [spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) [spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:111) [spring-boot-test-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:112) [gradle-testing-jvm-2.13.jar:2.13]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:56) [gradle-testing-jvm-2.13.jar:2.13]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:66) [gradle-testing-jvm-2.13.jar:2.13]
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51) [gradle-testing-base-2.13.jar:2.13]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93) [gradle-messaging-2.13.jar:2.13]
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source) [na:na]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109) [gradle-testing-base-2.13.jar:2.13]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:364) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54) [gradle-base-services-2.13.jar:2.13]
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40) [gradle-base-services-2.13.jar:2.13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+Caused by: java.net.UnknownHostException: clubmatdb: unknown error
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:1.8.0_60]
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928) ~[na:1.8.0_60]
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323) ~[na:1.8.0_60]
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1276) ~[na:1.8.0_60]
+	at java.net.InetAddress.getAllByName(InetAddress.java:1192) ~[na:1.8.0_60]
+	at java.net.InetAddress.getAllByName(InetAddress.java:1126) ~[na:1.8.0_60]
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300) ~[mysql-connector-java-5.1.39.jar:5.1.39]
+	... 103 common frames omitted
+
+2016-09-20 15:56:42.039  WARN 7819 --- [    Test worker] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata : Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2016-09-20 15:56:42.045  WARN 7819 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+2016-09-20 15:56:42.066  INFO 7819 --- [    Test worker] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report enable debug logging (start with --debug)
+
+
+2016-09-20 15:56:42.088 ERROR 7819 --- [    Test worker] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1076) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:851) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:111) [spring-boot-test-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:112) [gradle-testing-jvm-2.13.jar:2.13]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:56) [gradle-testing-jvm-2.13.jar:2.13]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:66) [gradle-testing-jvm-2.13.jar:2.13]
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51) [gradle-testing-base-2.13.jar:2.13]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93) [gradle-messaging-2.13.jar:2.13]
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source) [na:na]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109) [gradle-testing-base-2.13.jar:2.13]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:364) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54) [gradle-base-services-2.13.jar:2.13]
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40) [gradle-base-services-2.13.jar:2.13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:244) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:208) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:847) ~[hibernate-entitymanager-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:874) ~[hibernate-entitymanager-5.0.9.Final.jar:5.0.9.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60) ~[spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:338) ~[spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373) ~[spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362) ~[spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 60 common frames omitted
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:137) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:234) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	... 76 common frames omitted
+
+2016-09-20 15:56:42.104 ERROR 7819 --- [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@63151152] to prepare test instance [com.prosofi.clubmat.ClubmatBackendApplicationTests@57a01886]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191) [spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:112) [gradle-testing-jvm-2.13.jar:2.13]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:56) [gradle-testing-jvm-2.13.jar:2.13]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:66) [gradle-testing-jvm-2.13.jar:2.13]
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51) [gradle-testing-base-2.13.jar:2.13]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93) [gradle-messaging-2.13.jar:2.13]
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source) [na:na]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109) [gradle-testing-base-2.13.jar:2.13]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:364) [gradle-messaging-2.13.jar:2.13]
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54) [gradle-base-services-2.13.jar:2.13]
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40) [gradle-base-services-2.13.jar:2.13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1076) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:851) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:111) ~[spring-boot-test-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) ~[spring-test-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 45 common frames omitted
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:244) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:208) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:847) ~[hibernate-entitymanager-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:874) ~[hibernate-entitymanager-5.0.9.Final.jar:5.0.9.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60) ~[spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:338) ~[spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:373) ~[spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:362) ~[spring-orm-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 60 common frames omitted
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:137) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:234) ~[hibernate-core-5.0.9.Final.jar:5.0.9.Final]
+	... 76 common frames omitted
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
