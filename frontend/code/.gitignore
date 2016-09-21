@@ -17,3 +17,4 @@ _temp
 !wallaby.js
 app.css
 public/**
+debug.log

@@ -2,3 +2,7 @@ bin
 .settings
 .gradle
 **.class
+build
+.classpath
+.project
+gradle
