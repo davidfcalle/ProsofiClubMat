@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Institucion } from "../models/institucion";
 import { InstitutionService} from "../services/institution.service";
+import * as request from "superagent";
+
 
 @Component({
     selector: 'institutionCreate',
@@ -20,19 +22,21 @@ export class InstitutionCreateComponent {
     onSubmit():void{
        this.saveInstitution();
     }
-
-    receiveInst(inst : Institucion ):void{
+    
+    handleCreate(err: any, res: request.Response): void{
+          if(err){
+            alert("Error al crear la institución; inténtelo nuevamente");
+          }else{
+            var inst: Institucion = res.body as Institucion;
             alert(`institución ${inst.nombre} creada correctamente`);
-            this.router.navigate([`/instituciones`]);
-    }
-
-    errorInst():void{
-        alert("Error al crear la institución; inténtelo nuevamente");
+            this.institution = new Institucion();
+         }
     }
 
     saveInstitution(): void {
-        var promise : Promise<Institucion> = this.institutionService.saveInstitution(this.institution);
-        promise.then(this.receiveInst).catch(this.errorInst);
-
+        request.post('/api/instituciones/')
+            .send(this.institution)
+            .set('Accept', 'application/json')
+            .end(this.handleCreate);
     }
 }

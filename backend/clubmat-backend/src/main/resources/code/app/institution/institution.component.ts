@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Institucion } from "../models/institucion";
 import { InstitutionService} from "../services/institution.service";
+import * as request from "superagent";
 
 @Component({
     selector: 'institutionList',
@@ -28,10 +29,18 @@ export class InstitutionListComponent implements OnInit {
      }
 
      ngOnInit(): void {
-        this.institutionService
-             .getInstitutions()
-             //.then(this.setInst)
-             .then(institutions => this.institutions = institutions);
+        var call = this;
+        request
+            .get('/api/institucion?size=99999')
+            .end(function(err, res){
+                if(err){
+                    alert("Error al obtener las instituciones");
+                    return;
+                }
+                var institutionsRes = res.body._embedded.instituciones as Institucion[]
+                console.log(institutionsRes);
+                call.institutions = institutionsRes;
+            });
     }
 
     setInstitucion(ins: Institucion[]){
