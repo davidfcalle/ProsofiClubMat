@@ -7,7 +7,7 @@ import  { Usuario } from '../models/usuario';
 @Injectable()
 export class UserService {
 
-    private usersUrl: string = 'api/usuario';
+    private usersUrl: string = '/api/usuario';
     private headers: Headers;
 
     constructor(private http: Http){ 

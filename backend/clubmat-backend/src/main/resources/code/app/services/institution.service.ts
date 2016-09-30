@@ -42,7 +42,7 @@ const INSTITUTIONS: Institucion[] =  [
 @Injectable()
 export class InstitutionService {
 
-    private usersUrl: string = 'api/institucion';
+    private institutionsUrl: string = '/api/instituciones/';
     private headers: Headers;
 
     constructor(private http: Http){ 
@@ -54,9 +54,13 @@ export class InstitutionService {
         return Promise.resolve(INSTITUTIONS);
     }
 
-    saveInstitution(institution: Institucion): boolean{
-        INSTITUTIONS.push(institution);
-        return true;
+    saveInstitution(institution: Institucion): Promise<Institucion> {
+
+        var promise : Promise<Institucion> = this.http.post(this.institutionsUrl, JSON.stringify(institution), {headers : this.headers})
+                        .toPromise()
+                        .then(response => response.json().data as Institucion)
+                        .catch(error => error.message || error);
+        return promise;
     }
 
     getInstitution(id: number): Promise<Institucion> {

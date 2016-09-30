@@ -21,14 +21,18 @@ export class InstitutionCreateComponent {
        this.saveInstitution();
     }
 
-    saveInstitution(): void {
-        var saved: boolean = this.institutionService.saveInstitution(this.institution);
-        if(saved){
-            alert("institución creada correctamente");
+    receiveInst(inst : Institucion ):void{
+            alert(`institución ${inst.nombre} creada correctamente`);
             this.router.navigate([`/instituciones`]);
-            
-        }else{
-            alert("Error al crear la institución; inténtelo nuevamente");
-        }
+    }
+
+    errorInst():void{
+        alert("Error al crear la institución; inténtelo nuevamente");
+    }
+
+    saveInstitution(): void {
+        var promise : Promise<Institucion> = this.institutionService.saveInstitution(this.institution);
+        promise.then(this.receiveInst).catch(this.errorInst);
+
     }
 }
