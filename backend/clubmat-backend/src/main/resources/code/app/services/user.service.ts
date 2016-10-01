@@ -3,6 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import  { Usuario } from '../models/usuario';
+import * as request from "superagent";
 
 @Injectable()
 export class UserService {
@@ -16,11 +17,92 @@ export class UserService {
     }
 
     createUser(user: Usuario): Promise<Usuario> {
-        console.log("Se intenta crear " + JSON.stringify(user));
-        return this.http.post(this.usersUrl, JSON.stringify(user), {headers : this.headers})
-                        .toPromise()
-                        .then(response => response.json().data as Usuario)
-                        .catch(this.handleError);
+      return new Promise<Usuario>((resolve, reject) => {
+         request.post('/api/usuario/')
+            .send(user)
+            .set('Accept', 'application/json')
+            .end((err, res) =>{
+              if(err){
+                reject(null)
+              }else{
+                resolve(res.body as Usuario)
+              }
+            });
+      });
+    }
+
+    getUserList(): Promise<Usuario[]>{
+      return new Promise<Usuario[]>((resolve, reject)=>{
+         request
+          .get(`/api/usuario/?size=999999`)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              reject(null);
+            }else{
+              if(res.body == null){ // a pesar de que salio bien retorno un body nulo
+                reject(err);
+              }
+              resolve(res.body._embedded.usuarios as Usuario[]);
+            }
+          });
+      });
+    }
+
+    getUser(id: number): Promise<Usuario>{
+      return new Promise<Usuario>((resolve, reject) => {
+        request
+          .get(`/api/usuario/${id}`)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              reject(null);
+            }else{
+              if(res.body == null){ // a pesar de que salio bien retorno un body nulo
+                reject(err);
+              }
+              resolve(res.body as Usuario);
+            }
+          });
+      });
+    }
+
+    updateUser(user: Usuario): Promise<Usuario>{
+      return new Promise<Usuario>((resolve, reject) => {
+        request
+          .post(`/api/usuario/${user.idusuario}`)
+          .send(user)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              reject(null);
+            }else{
+              if(res.body == null){ // a pesar de que salio bien retorno un body nulo
+                reject(err);
+              }
+              resolve(res.body as Usuario);
+            }
+          });
+      })
+    }
+
+    deleteUser(user: Usuario): Promise<boolean>{
+      return new Promise<boolean>((resolve, reject) => {
+        request
+          .delete(`/api/usuario/${user.idusuario}`)
+          .send(user)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              reject(false);
+            }else{
+              if(res.body == null){ // a pesar de que salio bien retorno un body nulo
+                reject(false);
+              }
+              resolve(true);
+            }
+          });
+      })
     }
 
     private handleError(error: any): Promise<any> {
