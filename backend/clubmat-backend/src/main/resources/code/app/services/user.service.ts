@@ -15,8 +15,8 @@ export class UserService {
         this.headers.append('Content-Type', 'application/json;charset=utf-8');
     }
 
-    getUserList(page: number){
-
+    getCurrentUser(){
+      
     }
 
     createUser(user: Usuario): Promise<Usuario> {
