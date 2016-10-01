@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>clubmat-backend</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Proyecto de Olimpiadas matemáticas de la javeriana</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -66,6 +66,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

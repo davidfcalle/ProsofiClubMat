@@ -15,7 +15,7 @@ export class InstitutionListComponent implements OnInit {
      institutions : Institucion[];
      selectedIns : Institucion;
 
-     constructor (private institutionService: InstitutionService, private router: Router){
+     constructor (private router: Router){
 
      }
 
@@ -25,12 +25,17 @@ export class InstitutionListComponent implements OnInit {
      }
 
      editCurrentInstitution(): void {
-         this.router.navigate([`/instituciones/${this.selectedIns.idinstitucion}/editar`]);
+         if(this.selectedIns != null){
+             this.router.navigate([`/instituciones/${this.selectedIns.idinstitucion}/editar`]);
+         }else{
+             alert("Por favor seleccione la institución a editar")
+         }
+         
      }
 
-     ngOnInit(): void {
-        var call = this;
-        request
+     getInstitutions(): void{
+         var call = this;
+         request
             .get('/api/institucion?size=99999')
             .end(function(err, res){
                 if(err){
@@ -41,7 +46,11 @@ export class InstitutionListComponent implements OnInit {
                 console.log(institutionsRes);
                 call.institutions = institutionsRes;
             });
-    }
+     }
+
+     ngOnInit(): void {
+         this.getInstitutions(); 
+     }
 
     setInstitucion(ins: Institucion[]){
         this.institutions = ins;
@@ -52,9 +61,22 @@ export class InstitutionListComponent implements OnInit {
             alert("Por favor seleccione una institución a eliminar");
         }
         else{
-            var siborre : boolean = confirm(`¿Esta seguro de borrar la institución ${this.selectedIns.nombre} ?` );
-            if(siborre){
-                this.institutionService.deleteInstitution(this.selectedIns);
+            var shouldDelete : boolean = confirm(`¿Esta seguro de borrar la institución ${this.selectedIns.nombre} ?` );
+            if(shouldDelete){
+                var curInstance = this;
+                request
+                    .delete(`/api/institucion/${curInstance.selectedIns.idinstitucion}`)
+                    .send(this.selectedIns)
+                    .set('Accept', 'application/json')
+                    .end(function deleteInst(err: any, res: request.Response){
+                        if(err){
+                            alert("Error al eliminar la institución");
+                        }else{
+                            alert("Se eliminó la institución correctamente");
+                            curInstance.getInstitutions();
+                            curInstance.selectedIns = null;
+                        }
+                    });
             }
         }
 
@@ -64,8 +86,4 @@ export class InstitutionListComponent implements OnInit {
     goBack(){
         window.history.back();
     }
-
-
-
-
 }

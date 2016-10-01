@@ -10,7 +10,6 @@ import * as request from "superagent";
     templateUrl: 'app/institution/institution.create.component.html',
     styleUrls: ['app/institution/institution.component.css']
 })
-
 export class InstitutionCreateComponent {
     
      institution : Institucion;
@@ -34,9 +33,19 @@ export class InstitutionCreateComponent {
     }
 
     saveInstitution(): void {
+        var currentIntance : InstitutionCreateComponent = this; // para no perder la referencia dentro del callback
         request.post('/api/instituciones/')
             .send(this.institution)
             .set('Accept', 'application/json')
-            .end(this.handleCreate);
+            .end(function  handleCreate(err: any, res: request.Response): void{
+                if(err){
+                    alert("Error al crear la institución; inténtelo nuevamente");
+                }else{
+                    var inst: Institucion = res.body as Institucion;
+                    alert(`institución ${inst.nombre} creada correctamente`);
+                    currentIntance.institution = new Institucion();
+                    currentIntance.router.navigate(["/instituciones"]);
+                }
+             });
     }
 }
