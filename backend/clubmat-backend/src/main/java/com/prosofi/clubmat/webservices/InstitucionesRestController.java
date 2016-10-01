@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.prosofi.clubmat.datalayer.InstitucionRepository;
 import com.prosofi.clubmat.entities.Institucion;
 
+
+/**
+ * crud simple para la entidad institucion
+ * se deja como muestra para poder extender el api rest de la aplicación que autogenera spring con los repositorios
+ * @author davidfcalle
+ */
 @RestController
 public class InstitucionesRestController {
 

@@ -8,4 +8,6 @@ import com.prosofi.clubmat.entities.Usuario;
 @RepositoryRestResource( path="/usuario" , itemResourceRel = "usuario", collectionResourceRel ="usuarios") 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
+	public Usuario findOneByUsuario(String usuario);
+	
 }

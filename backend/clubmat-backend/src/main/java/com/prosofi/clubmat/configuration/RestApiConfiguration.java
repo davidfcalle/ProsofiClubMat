@@ -19,8 +19,15 @@ import com.prosofi.clubmat.entities.Reglacreacion;
 import com.prosofi.clubmat.entities.Usuario;
 import com.prosofi.clubmat.entities.UsuarioOlimpiada;
 
+
+/**
+ * clase encargada de la configuración del api rest de la aplicación
+ * @author davidfcalle
+ *
+ */
 @Configuration
 public class RestApiConfiguration {
+	
 	@Bean
 	public RepositoryRestConfigurer repositoryRestConfigurer() {
 
@@ -41,9 +48,7 @@ public class RestApiConfiguration {
 				config.exposeIdsFor(Usuario.class);
 				config.exposeIdsFor(UsuarioOlimpiada.class);
 			    // registro de proyecciones
-			    
 			    // config.getProjectionConfiguration( ).addProjection( ClienteRotulacion.class );
-
 			}
 
 			@Override

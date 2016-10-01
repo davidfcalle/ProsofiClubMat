@@ -4,6 +4,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+
+/**
+ * Clase que muestra las rutas y los lugares en donde se encuentran los archivos estáticos de la aplciación
+ * @author davidfcalle
+ *
+ */
 @Configuration
 public class StaticFilesConfiguration extends WebMvcConfigurerAdapter{
 	

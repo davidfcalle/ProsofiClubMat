@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Usuario } from '../models/usuario';
-import { UserService } from '../services/user.service';
+import * as request from "superagent";
 
 @Component({
     selector: 'signup',
@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
 
     user: Usuario;
 
-    constructor(private userService: UserService) {
+    constructor() {
     }
 
     ngOnInit(): void {
@@ -20,10 +20,21 @@ export class SignupComponent implements OnInit {
     }
 
     signup(): void{
+        var curInstance = this;
         console.log("Se crea el usuario...")
-        this.userService.createUser(this.user)
-            .then(this.showSuccessMessage)
-            .catch(this.showErrorMessage);
+
+        request
+          .post(`/api/usuario`)
+          .send(this.user)
+          .set('Accept', 'application/json')
+          .end(function addUser(err: any, res: request.Response){
+            if(err){
+              curInstance.showErrorMessage(err);
+            }else{
+              var user = res.body as Usuario;
+              curInstance.showSuccessMessage(user);
+            }
+          });
     }
 
     showErrorMessage(err: any): void {
@@ -32,6 +43,7 @@ export class SignupComponent implements OnInit {
     }
 
     showSuccessMessage(user: Usuario): void {
-         alert(`Usuario ${user.usuario} creado correctamente.`);     
+         alert(`Usuario ${user.usuario} creado correctamente.`);
+         this.user = new Usuario();  
     }
 }
