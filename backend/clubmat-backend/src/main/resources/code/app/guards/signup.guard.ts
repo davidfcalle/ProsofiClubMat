@@ -18,7 +18,15 @@ export class SignupGuard implements CanActivate {
           .get(`/api/currentUser/`)
           .set('Accept', 'application/json')
           .end((err, res) => {
-                err ? reject(false) : resolve(true);
+            if(err){
+              reject(false);
+            }else{
+              if(res.body == null){
+                alert("El usuario no tiene los permisos para ver esta funcionalidad");
+                resolve(false);
+              }
+              resolve(true);
+            }
           });
       })
     }

@@ -17,6 +17,8 @@ import { InstitutionEditComponent } from './institution/institution.edit.compone
 import { UserService } from './services/user.service';
 import { InstitutionService } from './services/institution.service';
 
+import { SignupGuard } from './guards/signup.guard'; 
+
 @NgModule({
   imports: [ 
     BrowserModule,
@@ -34,7 +36,8 @@ import { InstitutionService } from './services/institution.service';
   ],
   providers:[
     UserService,
-    InstitutionService
+    InstitutionService,
+    SignupGuard
   ],
   bootstrap: [ AppComponent ]
 })
