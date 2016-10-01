@@ -16,6 +16,7 @@ import { Component } from '@angular/core';
                     <li routerLinkActive="active"><a class ="yellow accent-4" routerLink="/instituciones">Instituciones</a></li>
                     <li routerLinkActive="active"><a class ="orange accent-4" routerLink="/instituciones">Instituciones</a></li>
                     <li routerLinkActive="active"><a class ="red accent-4"  routerLink="/instituciones">Instituciones</a></li>
+                    <li><a class ="red accent-4" href="/logout">Cerrar Sesión</a></li>
                 </ul>
                 <ul id="mobile-demo" class="side-nav">
                     <li routerLinkActive="active"><a class ="purple darken-2" routerLink="/signup">Crear Usuario</a></li>
@@ -25,7 +26,7 @@ import { Component } from '@angular/core';
                     <li routerLinkActive="active"><a class ="lime accent-4" routerLink="/instituciones">Instituciones</a></li>
                     <li routerLinkActive="active"><a class ="yellow accent-4" routerLink="/instituciones">Instituciones</a></li>
                     <li routerLinkActive="active"><a class ="orange accent-4" routerLink="/instituciones">Instituciones</a></li>
-                    <li routerLinkActive="active"><a class ="red accent-4"  routerLink="/instituciones">Instituciones</a></li>
+                    <li><a class ="red accent-4" href="/logout">Cerrar Sesión</a></li>
                 </ul>
             </div>
         </nav>

@@ -15,10 +15,6 @@ export class UserService {
         this.headers.append('Content-Type', 'application/json;charset=utf-8');
     }
 
-    getCurrentUser(){
-      
-    }
-
     createUser(user: Usuario): Promise<Usuario> {
         console.log("Se intenta crear " + JSON.stringify(user));
         return this.http.post(this.usersUrl, JSON.stringify(user), {headers : this.headers})
