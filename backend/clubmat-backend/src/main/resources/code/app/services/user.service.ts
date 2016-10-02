@@ -70,7 +70,7 @@ export class UserService {
     updateUser(user: Usuario): Promise<Usuario>{
       return new Promise<Usuario>((resolve, reject) => {
         request
-          .post(`/api/usuario/${user.idusuario}`)
+          .put(`/api/usuario/${user.idusuario}`)
           .send(user)
           .set('Accept', 'application/json')
           .end((err, res) => {
@@ -97,7 +97,7 @@ export class UserService {
               reject(false);
             }else{
               if(res.body == null){ // a pesar de que salio bien retorno un body nulo
-                reject(false);
+                resolve(true);
               }
               resolve(true);
             }

@@ -5,6 +5,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 
 import { UserListComponent } from './users/users.component';
+import { UserEditComponent } from './users/user.edit.component';
 
 import { InstitutionListComponent } from './institution/institution.component'
 import { InstitutionCreateComponent } from './institution/institution.create.component'
@@ -37,6 +38,10 @@ const appRoutes: Routes = [
   {
     path: 'usuarios',
     component: UserListComponent
+  },
+  {
+    path: 'usuarios/:id/editar',
+    component: UserEditComponent
   },
   {
     path: '',

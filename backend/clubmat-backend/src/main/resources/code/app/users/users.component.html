@@ -37,11 +37,11 @@
 
 <div class="row">
     <div class = "col s12 m5 l5 offset-m1 offset-l1">
-        <a class="waves-effect btn blue lighten-2 col s12 m5 l5 btn" routerLink="/usuarios/crear">Crear Usuario</a>  
-        <a class="waves-effect btn blue col s12 m5 l5 offset-m1 offset-l1 btn"  >Editar Usuario</a>  
+        <a class="waves-effect btn blue lighten-2 col s12 m5 l5 btn" routerLink="/signup">Crear Usuario</a>  
+        <a class="waves-effect btn blue col s12 m5 l5 offset-m1 offset-l1 btn" (click)="editUser()">Editar Usuario</a>  
     </div>
     <div class="col s12 m5 l5">
-        <a class="waves-effect btn blue darken-2 col s12 m5 l5 btn" >Eliminar Usuario</a> 
-        <a class="waves-effect btn blue darken-4 col s12 m6 l6 offset-m1 offset-l1">Volver</a>   
+        <a class="waves-effect btn blue darken-2 col s12 m5 l5 btn" (click)="deleteUser()">Eliminar Usuario</a> 
+        <a class="waves-effect btn blue darken-4 col s12 m6 l6 offset-m1 offset-l1" (click)="goBack()">Volver</a>   
     </div>
 </div>

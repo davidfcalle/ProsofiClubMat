@@ -16,6 +16,7 @@ import { InstitutionCreateComponent } from './institution/institution.create.com
 import { InstitutionEditComponent } from './institution/institution.edit.component';
 
 import { UserListComponent } from './users/users.component';
+import { UserEditComponent } from './users/user.edit.component';
 
 import { UserService } from './services/user.service';
 import { InstitutionService } from './services/institution.service';
@@ -36,7 +37,8 @@ import { SignupGuard } from './guards/signup.guard';
     InstitutionListComponent,
     InstitutionCreateComponent,
     InstitutionEditComponent,
-    UserListComponent
+    UserListComponent,
+    UserEditComponent
   ],
   providers:[
     UserService,
