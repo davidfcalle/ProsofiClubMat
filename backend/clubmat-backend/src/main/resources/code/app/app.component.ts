@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
                     <li routerLinkActive="active"><a class ="light-blue accent-4" routerLink="/signin">Iniciar Sesión</a></li>
                     <li routerLinkActive="active"><a class ="teal accent-4" routerLink="/instituciones">Instituciones</a></li>
                     <li routerLinkActive="active"><a class ="green accent-4" routerLink="/instituciones">Instituciones</a></li>
-                    <li routerLinkActive="active"><a class ="lime accent-4" routerLink="/instituciones">Instituciones</a></li>
+                    <li routerLinkActive="active"><a class ="lime accent-4" routerLink="/usuarios">Usuarios</a></li>
                     <li routerLinkActive="active"><a class ="yellow accent-4" routerLink="/instituciones">Instituciones</a></li>
                     <li routerLinkActive="active"><a class ="orange accent-4" routerLink="/instituciones">Instituciones</a></li>
                     <li routerLinkActive="active"><a class ="red accent-4"  routerLink="/instituciones">Instituciones</a></li>

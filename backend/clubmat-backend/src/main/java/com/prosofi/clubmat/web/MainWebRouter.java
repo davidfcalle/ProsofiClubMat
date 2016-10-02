@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainWebRouter {
 
-	@RequestMapping(value={"/signup","/","", "/instituciones/**"})
+	@RequestMapping(value={"/signup","/","", "/instituciones/**","/usuarios/**"})
 	public String app(){
 		return "app";
 	}

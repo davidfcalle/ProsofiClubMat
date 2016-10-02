@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+
+import { UserListComponent } from './users/users.component';
+import { UserEditComponent } from './users/user.edit.component';
+
 import { InstitutionListComponent } from './institution/institution.component'
 import { InstitutionCreateComponent } from './institution/institution.create.component'
 import { InstitutionEditComponent } from './institution/institution.edit.component'
@@ -30,6 +34,14 @@ const appRoutes: Routes = [
   {
     path: 'instituciones/:id/editar',
     component: InstitutionEditComponent
+  },
+  {
+    path: 'usuarios',
+    component: UserListComponent
+  },
+  {
+    path: 'usuarios/:id/editar',
+    component: UserEditComponent
   },
   {
     path: '',

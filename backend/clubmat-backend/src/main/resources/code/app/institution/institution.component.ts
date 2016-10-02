@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Institucion } from "../models/institucion";
-import { InstitutionService} from "../services/institution.service";
+import { InstitutionService } from "../services/institution.service";
 import * as request from "superagent";
 
 @Component({
@@ -9,7 +9,6 @@ import * as request from "superagent";
     templateUrl: 'app/institution/institution.component.html',
     styleUrls: ['app/institution/institution.component.css']
 })
-
 export class InstitutionListComponent implements OnInit {
     
      institutions : Institucion[];
