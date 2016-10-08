@@ -26,7 +26,10 @@
       // other libraries
       'rxjs':                       'npm:rxjs',
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
-      'superagent':'npm:superagent/superagent.js'
+      'superagent':'npm:superagent/superagent.js',
+      "materialize-css": "node-modules/materialize-css",
+      "angular2-materialize": "node_modules/angular2-materialize"
+
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -36,6 +39,13 @@
       },
       rxjs: {
         defaultExtension: 'js'
+      },
+      "materialize-css": {
+          "main": "dist/js/materialize"
+      },
+      "angular2-materialize": {
+          "main": "dist/materialize-directive",
+          "defaultExtension": "js"
       }
     }
   });

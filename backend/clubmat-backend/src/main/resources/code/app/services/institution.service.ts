@@ -96,8 +96,4 @@ export class InstitutionService {
         }
         return retorno;
     }
-
-
-
-
 }
