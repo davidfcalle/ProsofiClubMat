@@ -14,26 +14,34 @@
                       <div class="divider"></div>
                       <div class="section">
                           <h6>Clasificación</h6>
-                          <select class="browser-default" materialize="material_select" id="dificultad" name="dificultad" [(ngModel)]="question.clasificacion">
+                          <select class="browser-default" materialize="material_select" id="clasificacion" name="clasificacion" [(ngModel)]="question.clasificacion">
                               <option selected disabled>Selecciona una opción</option>
-                              <option *ngFor="let dif of classOptions" [value]="dif">{{dif}}</option>
+                              <option *ngFor="let diff of classOptions" [value]="diff">{{diff}}</option>
                           </select>
 
                           <h6>Grado</h6>
                           <input id="nivelacademico" class="pad-top" [(ngModel)]="question.nivelacademico" name="nivelacademico" type="number"  placeholder="Grado (en número)" required=""/>
-
 
                           <h6>Dificultad</h6>
                           <select class="browser-default" materialize="material_select" id="dificultad" name="dificultad" [(ngModel)]="question.dificultad">
                               <option selected disabled>Selecciona una opción</option>
                               <option *ngFor="let dif of diffOptions" [value]="dif">{{dif}}</option>
                           </select>
+
                           <h6>Temática</h6>
                           <input class="pad-top" [(ngModel)]="question.tematica" name="tema" type="text"  placeholder="Tema" required=""/>
+                          
                           <h6>Título</h6>
                           <input [(ngModel)]="question.titulo" name="titulo" type="text" placeholder="Título" />
+                          
                           <h6>Enunciado</h6>
                           <textarea [(ngModel)]="question.enunciado" id="enunciado" name="enunciado" class="materialize-textarea" placeholder="Enunciado"></textarea>
+
+                          <h6>¿Aprobada?</h6>
+                          <select class="browser-default" materialize="material_select" id="aprobado" name="aprobado" [(ngModel)]="question.aprobado">
+                              <option selected disabled>Selecciona una opción</option>
+                              <option *ngFor="let aproved of aprovedOptions" [value]="aproved">{{aproved}}</option>
+                          </select>
                       </div>
                     </div>
 
@@ -54,7 +62,7 @@
                       </div>
                     </div>
                     <div class="col 12 m12 l12">
-                      <button class="btn waves-effect waves-light btn-signup" type="submit"> Crear Pregunta </button>
+                      <button class="btn waves-effect waves-light btn-signup" type="submit"> Editar Pregunta </button>
                       <button class="btn waves-effect waves-light btn-signup" type="button" (click)="goBack()"> Volver </button>
                     </div>
                     

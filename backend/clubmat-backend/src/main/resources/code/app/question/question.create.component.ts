@@ -18,6 +18,7 @@ export class QuestionCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.question = new Pregunta();
+    this.question.initiualizeNotAproved();
     this.question.initailizeEmptyQuestions();
   }
 
@@ -29,6 +30,9 @@ export class QuestionCreateComponent implements OnInit {
     this.questionService.createQuestion(this.question)
       .then(question => {
         alert(`Pregunta ${this.question.titulo} creada correctamente`);
+        this.question = new Pregunta();
+        this.question.initailizeEmptyQuestions();
+        this.question.initiualizeNotAproved();
       }).catch( err => {
         alert("Error al crear la pregunta");
       });

@@ -5,9 +5,12 @@ export const DIFICULTAD_FACIL: string = "Fácil";
 export const DIFICULTAD_MEDIA: string = "Media";
 export const DIFICULTAD_ALTA: string = "Alta";
 
+export const APROVADO_SI: string = "Si";
+export const APROVADO_NO: string = "No";
+
 export const DIFICULTADES: string[] = [DIFICULTAD_FACIL, DIFICULTAD_MEDIA, DIFICULTAD_ALTA];
 export const CLASIFICACIONES: string[] = [CLASIFICACION_OLIMPIADA, CLASIFICACION_PRACTICA];
-
+export const APROVADOS: string[] = [APROVADO_SI, APROVADO_NO];
 
 export class Pregunta {
 
@@ -33,6 +36,10 @@ export class Pregunta {
     this.opcionpreguntaList[1].correcta = false;
     this.opcionpreguntaList[2].correcta = false;
     this.opcionpreguntaList[3].correcta = false;
+  }
+
+  initiualizeNotAproved(){
+    this.aprobado = APROVADO_NO;
   }
 
 }
