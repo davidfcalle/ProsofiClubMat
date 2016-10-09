@@ -14,7 +14,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -33,7 +32,6 @@ public class Clubmatematicas implements Serializable {
 
 	@Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idclub")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idclub;

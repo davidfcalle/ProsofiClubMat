@@ -15,11 +15,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "pregunta")
@@ -33,7 +33,6 @@ public class Pregunta implements Serializable {
 
 	@Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idpregunta")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idpregunta;
@@ -175,6 +174,7 @@ public class Pregunta implements Serializable {
         return opcionpreguntaList;
     }
 
+    @JsonProperty
     public void setOpcionpreguntaList(List<Opcionpregunta> opcionpreguntaList) {
         this.opcionpreguntaList = opcionpreguntaList;
     }
@@ -199,8 +199,12 @@ public class Pregunta implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "co.edu.javeriana.clubmat.entidades.Pregunta[ idpregunta=" + idpregunta + " ]";
-    }
+	@Override
+	public String toString() {
+		return "Pregunta [idpregunta=" + idpregunta + ", clasificacion=" + clasificacion + ", nivelacademico="
+				+ nivelacademico + ", tematica=" + tematica + ", dificultad=" + dificultad + ", titulo=" + titulo
+				+ ", enunciado=" + enunciado + ", aprobado=" + aprobado + ", resultado=" + resultado + " opciones="+ opcionpreguntaList + "]";
+	}
+
+    
 }

@@ -1,0 +1,45 @@
+<div class="container center"> 
+    <h3>Preguntas</h3>
+    <p>
+        Estos son las preguntas disponibles para ClubMat
+    </p>
+</div>
+<div class="row">
+    <div class="offset-m1 offset-l1 col s12 m10 l10"> 
+        <div> 
+            <table class ="responsive-table centered">
+                <thead class = "indigo accent-2 white-text">
+                    <tr>
+                        <th data-field="name">Clasificacion</th>
+                        <th data-field="name">Grado</th>
+                        <th data-field="name">Tema</th>
+                        <th data-field="name">Dificultad</th>
+                        <th data-field="name">Título</th>
+                        <th data-field="name">Aprovada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let question of questions" (click)="changeSelected(question)" [class.selected]="selected == question">
+                        <td>{{ question.clasificacion }}</td>
+                        <td>{{ question.nivelacademico }}</td>
+                        <td>{{ question.tematica }}</td>
+                        <td>{{ question.dificultad }}</td>
+                        <td>{{ question.titulo }}</td>
+                        <td>{{ question.aprobado }}</td>  
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class = "col s12 m5 l5 offset-m1 offset-l1">
+        <a class="waves-effect btn blue lighten-2 col s12 m5 l5 btn" routerLink="/preguntas/crear">Crear Pregunta</a>  
+        <a class="waves-effect btn blue col s12 m5 l5 offset-m1 offset-l1 btn" (click)="edit()">Editar Pregunta</a>  
+    </div>
+    <div class="col s12 m5 l5">
+        <a class="waves-effect btn blue darken-2 col s12 m5 l5 btn" (click)="  deleteQuestion()">Eliminar Pregunta</a> 
+        <a class="waves-effect btn blue darken-4 col s12 m6 l6 offset-m1 offset-l1" (click)="goBack()">Volver</a>   
+    </div>
+</div>

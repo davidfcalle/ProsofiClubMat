@@ -1,0 +1,67 @@
+<section id="main-container">
+  <div class="container">
+    <div class="row">
+      <div class="col s10 push-s1">
+        <div class="row">
+              <div class="signup-box">
+                  <h4 class="login-title"> Agregar Pregunta </h4>
+                  <form action="" class="signup-form" (ngSubmit)="onSubmit()">
+
+                    <!-- Informaciòn Principal de la Pregunta -->
+
+                    <div class="col s12 m12 l6 input-field">
+                      <h2>Crea una pregunta</h2>
+                      <div class="divider"></div>
+                      <div class="section">
+                          <h6>Clasificación</h6>
+                          <select class="browser-default" materialize="material_select" id="dificultad" name="dificultad" [(ngModel)]="question.clasificacion">
+                              <option selected disabled>Selecciona una opción</option>
+                              <option *ngFor="let dif of classOptions" [value]="dif">{{dif}}</option>
+                          </select>
+
+                          <h6>Grado</h6>
+                          <input id="nivelacademico" class="pad-top" [(ngModel)]="question.nivelacademico" name="nivelacademico" type="number"  placeholder="Grado (en número)" required=""/>
+
+
+                          <h6>Dificultad</h6>
+                          <select class="browser-default" materialize="material_select" id="dificultad" name="dificultad" [(ngModel)]="question.dificultad">
+                              <option selected disabled>Selecciona una opción</option>
+                              <option *ngFor="let dif of diffOptions" [value]="dif">{{dif}}</option>
+                          </select>
+                          <h6>Temática</h6>
+                          <input class="pad-top" [(ngModel)]="question.tematica" name="tema" type="text"  placeholder="Tema" required=""/>
+                          <h6>Título</h6>
+                          <input [(ngModel)]="question.titulo" name="titulo" type="text" placeholder="Título" />
+                          <h6>Enunciado</h6>
+                          <textarea [(ngModel)]="question.enunciado" id="enunciado" name="enunciado" class="materialize-textarea" placeholder="Enunciado"></textarea>
+                      </div>
+                    </div>
+
+                    <!-- Opciones Pregunta -->
+
+                    <div class="col s12 m12 l6 input-field">
+                      <h2>Opciones Pregunta</h2>
+                      <div class="divider"></div>
+                      <div class="section">
+                          <i class="material-icons prefix" style="color: green;">done</i>
+                          <input class="pad-top" [(ngModel)]="question.opcionpreguntaList[0].opcion" name="opcion1" type="text"  placeholder="Opción Correcta" required=""/>
+                          <i class="material-icons prefix" style="color: red;">clear</i>
+                          <input class="pad-top" [(ngModel)]="question.opcionpreguntaList[1].opcion" name="opcion2" type="text"  placeholder="Opción Inorrecta" required=""/>
+                          <i class="material-icons prefix" style="color: red;">clear</i>
+                          <input class="pad-top" [(ngModel)]="question.opcionpreguntaList[2].opcion" name="opcion3" type="text"  placeholder="Opción Inorrecta" required=""/>
+                          <i class="material-icons prefix" style="color: red;">clear</i>
+                          <input class="pad-top" [(ngModel)]="question.opcionpreguntaList[3].opcion" name="opcion4" type="text"  placeholder="Opción Incorrecta" required=""/>
+                      </div>
+                    </div>
+                    <div class="col 12 m12 l12">
+                      <button class="btn waves-effect waves-light btn-signup" type="submit"> Crear Pregunta </button>
+                      <button class="btn waves-effect waves-light btn-signup" type="button" (click)="goBack()"> Volver </button>
+                    </div>
+                    
+                  </form>
+              </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </section>

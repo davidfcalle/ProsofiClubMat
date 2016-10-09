@@ -1,40 +1,30 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
-import  { Usuario } from '../models/usuario';
+import  { Pregunta, OpcionPregunta } from '../models/pregunta';
 import * as request from "superagent";
 
 @Injectable()
-export class UserService {
+export class QuestionService {
 
-    private usersUrl: string = '/api/usuario';
-    private headers: Headers;
-
-    constructor(private http: Http){ 
-        this.headers = new Headers();
-        this.headers.append('Content-Type', 'application/json;charset=utf-8');
-    }
-
-    createUser(user: Usuario): Promise<Usuario> {
-      return new Promise<Usuario>((resolve, reject) => {
-         request.post('/api/usuario/')
-            .send(user)
+  createQuestion(question: Pregunta): Promise<Pregunta> {
+      return new Promise<Pregunta>((resolve, reject) => {
+         request.post('/api/preguntas/')
+            .send(question)
             .set('Accept', 'application/json')
             .end((err, res) =>{
               if(err){
                 reject(null)
               }else{
-                resolve(res.body as Usuario)
+                resolve(res.body as Pregunta)
               }
             });
       });
     }
 
-    getUserList(): Promise<Usuario[]>{
-      return new Promise<Usuario[]>((resolve, reject)=>{
+    getQuestionList(): Promise<Pregunta[]>{
+      return new Promise<Pregunta[]>((resolve, reject)=>{
          request
-          .get(`/api/usuario/?size=999999`)
+          .get(`/api/pregunta/?size=999999`)
           .set('Accept', 'application/json')
           .end((err, res) => {
             if(err){
@@ -43,16 +33,16 @@ export class UserService {
               if(res.body == null){ // a pesar de que salio bien retorno un body nulo
                 reject(err);
               }
-              resolve(res.body._embedded.usuarios as Usuario[]);
+              resolve(res.body._embedded.preguntas as Pregunta[]);
             }
           });
       });
     }
 
-    getUser(id: number): Promise<Usuario>{
-      return new Promise<Usuario>((resolve, reject) => {
+    getQuestion(id: number): Promise<Pregunta>{
+      return new Promise<Pregunta>((resolve, reject) => {
         request
-          .get(`/api/usuario/${id}`)
+          .get(`/api/pregunta/${id}?projection=preguntas`)
           .set('Accept', 'application/json')
           .end((err, res) => {
             if(err){
@@ -61,17 +51,17 @@ export class UserService {
               if(res.body == null){ // a pesar de que salio bien retorno un body nulo
                 reject(err);
               }
-              resolve(res.body as Usuario);
+              resolve(res.body as Pregunta);
             }
           });
       });
     }
 
-    updateUser(user: Usuario): Promise<Usuario>{
-      return new Promise<Usuario>((resolve, reject) => {
+    updateQuestion(question: Pregunta): Promise<Pregunta>{
+      return new Promise<Pregunta>((resolve, reject) => {
         request
-          .put(`/api/usuario/${user.idusuario}`)
-          .send(user)
+          .put(`/api/pregunta/${question.idpregunta}`)
+          .send(question)
           .set('Accept', 'application/json')
           .end((err, res) => {
             if(err){
@@ -80,17 +70,17 @@ export class UserService {
               if(res.body == null){ // a pesar de que salio bien retorno un body nulo
                 reject(err);
               }
-              resolve(res.body as Usuario);
+              resolve(res.body as Pregunta);
             }
           });
       })
     }
 
-    deleteUser(user: Usuario): Promise<boolean>{
+    deleteQuestion(question: Pregunta): Promise<boolean>{
       return new Promise<boolean>((resolve, reject) => {
         request
-          .delete(`/api/usuario/${user.idusuario}`)
-          .send(user)
+          .delete(`/api/pregunta/${question.idpregunta}`)
+          .send(question)
           .set('Accept', 'application/json')
           .end((err, res) => {
             if(err){

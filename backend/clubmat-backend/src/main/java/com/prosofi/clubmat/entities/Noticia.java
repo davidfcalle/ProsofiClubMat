@@ -15,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -33,7 +32,6 @@ public class Noticia implements Serializable{
 
 	@Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idnoticia")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idnoticia;

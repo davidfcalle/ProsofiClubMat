@@ -15,7 +15,7 @@ import com.prosofi.clubmat.entities.Usuario;
 
 /**
  * Controlador rest para la informacion del usuario
- * @author root
+ * @author david.calle
  *
  */
 @RestController
