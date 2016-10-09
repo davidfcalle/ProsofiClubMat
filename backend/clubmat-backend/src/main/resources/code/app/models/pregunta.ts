@@ -22,7 +22,18 @@ export class Pregunta {
   resultado: string;
   opcionpreguntaList: OpcionPregunta[];
 
-
+  initailizeEmptyQuestions() {
+    this.opcionpreguntaList = [
+      new OpcionPregunta(),
+      new OpcionPregunta(),
+      new OpcionPregunta(),
+      new OpcionPregunta()
+    ];
+    this.opcionpreguntaList[0].correcta = true;
+    this.opcionpreguntaList[1].correcta = false;
+    this.opcionpreguntaList[2].correcta = false;
+    this.opcionpreguntaList[3].correcta = false;
+  }
 
 }
 

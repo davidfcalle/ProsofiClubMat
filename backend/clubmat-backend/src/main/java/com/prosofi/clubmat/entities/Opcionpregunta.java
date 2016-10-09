@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -27,7 +26,6 @@ public class Opcionpregunta implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @NotNull
     @Column(name = "idopcionpregunta")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idopcionpregunta;    

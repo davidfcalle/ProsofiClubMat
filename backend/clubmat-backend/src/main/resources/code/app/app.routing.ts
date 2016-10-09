@@ -44,7 +44,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'preguntas/crear',
-    component: QuestionsComponent
+    component: QuestionCreateComponent
   },
   {
     path: 'usuarios',

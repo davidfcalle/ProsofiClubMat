@@ -11,12 +11,22 @@ import { QuestionService } from '../services/question.service';
 })
 export class QuestionCreateComponent implements OnInit {
   question: Pregunta;
+  diffOptions: string[] = DIFICULTADES;
+  classOptions: string[] = CLASIFICACIONES;
+
+  constructor(private questionService: QuestionService){}
 
   ngOnInit(): void {
     this.question = new Pregunta();
+    this.question.initailizeEmptyQuestions();
   }
 
   onSubmit(): void {
-    alert("Se creó el elemento");
+    this.questionService.createQuestion(this.question)
+      .then(question => {
+        alert(`Pregunta ${this.question.titulo} creada correctamente`);
+      }).catch( err => {
+        alert("Error al crear la pregunta");
+      });
   }
 }
