@@ -1,12 +1,12 @@
-export const CLASIFICACION_PREGUNTA: string = "PREGUNTA";
-export const CLASIFICACION_OLIMPIADA: string = "OLIMPIADA";
+export const CLASIFICACION_PRACTICA: string = "Practica";
+export const CLASIFICACION_OLIMPIADA: string = "Olimpiada";
 
-export const DIFICULTAD_FACIL: string = "FACIL";
-export const DIFICULTAD_MEDIA: string = "MEDIA";
-export const DIFICULTAD_ALTA: string = "ALTA";
+export const DIFICULTAD_FACIL: string = "Fácil";
+export const DIFICULTAD_MEDIA: string = "Media";
+export const DIFICULTAD_ALTA: string = "Alta";
 
 export const DIFICULTADES: string[] = [DIFICULTAD_FACIL, DIFICULTAD_MEDIA, DIFICULTAD_ALTA];
-export const CLASIFICACIONES: string[] = [CLASIFICACION_OLIMPIADA, CLASIFICACION_PREGUNTA];
+export const CLASIFICACIONES: string[] = [CLASIFICACION_OLIMPIADA, CLASIFICACION_PRACTICA];
 
 
 export class Pregunta {

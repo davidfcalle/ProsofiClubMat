@@ -8,7 +8,7 @@ export class QuestionService {
 
   createQuestion(question: Pregunta): Promise<Pregunta> {
       return new Promise<Pregunta>((resolve, reject) => {
-         request.post('/api/pregunta/')
+         request.post('/api/preguntas/')
             .send(question)
             .set('Accept', 'application/json')
             .end((err, res) =>{
@@ -42,7 +42,7 @@ export class QuestionService {
     getQuestion(id: number): Promise<Pregunta>{
       return new Promise<Pregunta>((resolve, reject) => {
         request
-          .get(`/api/pregunta/${id}`)
+          .get(`/api/pregunta/${id}?projection=preguntas`)
           .set('Accept', 'application/json')
           .end((err, res) => {
             if(err){
@@ -60,7 +60,7 @@ export class QuestionService {
     updateQuestion(question: Pregunta): Promise<Pregunta>{
       return new Promise<Pregunta>((resolve, reject) => {
         request
-          .put(`/api/usuario/${question.idpregunta}`)
+          .put(`/api/pregunta/${question.idpregunta}`)
           .send(question)
           .set('Accept', 'application/json')
           .end((err, res) => {
@@ -79,7 +79,7 @@ export class QuestionService {
     deleteQuestion(question: Pregunta): Promise<boolean>{
       return new Promise<boolean>((resolve, reject) => {
         request
-          .delete(`/api/usuario/${question.idpregunta}`)
+          .delete(`/api/pregunta/${question.idpregunta}`)
           .send(question)
           .set('Accept', 'application/json')
           .end((err, res) => {

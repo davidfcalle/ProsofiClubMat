@@ -21,6 +21,10 @@ export class QuestionCreateComponent implements OnInit {
     this.question.initailizeEmptyQuestions();
   }
 
+  goBack(){
+    window.history.back();
+  }
+
   onSubmit(): void {
     this.questionService.createQuestion(this.question)
       .then(question => {

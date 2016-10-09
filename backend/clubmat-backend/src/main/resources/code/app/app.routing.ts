@@ -13,6 +13,7 @@ import { InstitutionEditComponent } from './institution/institution.edit.compone
 
 import { QuestionsComponent } from './question/questions.component';
 import { QuestionCreateComponent } from './question/question.create.component';
+import { QuestionEditComponent } from './question/question.edit.component';
 
 import { SignupGuard } from './guards/signup.guard'; 
 
@@ -45,6 +46,10 @@ const appRoutes: Routes = [
   {
     path: 'preguntas/crear',
     component: QuestionCreateComponent
+  },
+  {
+    path: 'preguntas/:id/editar',
+    component: QuestionEditComponent
   },
   {
     path: 'usuarios',
