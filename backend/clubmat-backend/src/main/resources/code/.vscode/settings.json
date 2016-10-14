@@ -6,4 +6,6 @@
         "**/*.js.map": true,
         "**/*.js": {"when": "$(basename).ts"}
     }
+,
+"typescript.check.workspaceVersion": false
 }
