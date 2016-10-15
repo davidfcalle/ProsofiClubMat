@@ -38,10 +38,10 @@ export class QuestionEditComponent implements OnInit {
 
     saveQuestion(): void {
         this.questionService.createQuestion(this.question)
-            .then(question =>{
-                alert("Pregunta editada correctamente");
-            })
-            .catch(err => alert("Error al editar la pregunta"));
+          .then(question =>{
+              alert("Pregunta editada correctamente");
+          })
+          .catch(err => alert("Error al editar la pregunta"));
     }
 
 
