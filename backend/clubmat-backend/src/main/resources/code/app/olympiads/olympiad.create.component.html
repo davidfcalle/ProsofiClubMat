@@ -1,0 +1,62 @@
+<section id="main-container">
+  <div class="container">
+    <div class="row">
+      <div class="col s10 push-s1">
+        <div class="row">
+              <div class="signup-box">
+                  <h4 class="login-title"> Agregar Pregunta </h4>
+                  <form action="" class="signup-form" (ngSubmit)="onSubmit()">
+
+                    <!-- Informaciòn Principal de la Pregunta -->
+
+                    <div class="col s12 m12 l6 input-field">
+                      <h2>Crea una olimpiada</h2>
+                      <div class="divider"></div>
+                      
+                      <div class="section">
+                          <h6>Fecha</h6>
+                          <input id="fecha" class="pad-top" [(ngModel)]="olympiad.fecha" name="fecha" type="date"  placeholder="Fecha" required=""/>
+                      </div>
+
+                      <div class="section">
+                          <h6>Nombre</h6>
+                          <input id="nombre" class="pad-top" [(ngModel)]="olympiad.nombre" name="nombre" type="text"  placeholder="Nombre" required=""/>
+                      </div>
+
+                      <div class="section">
+                          <h6>Ciudad</h6>
+                          <input id="fecha" class="pad-top" [(ngModel)]="olympiad.ciudad" name="ciudad" type="text"  placeholder="Ciudad" required=""/>
+                      </div>
+
+                      <div class="section">
+                          <h6>Lugar</h6>
+                          <input id="fecha" class="pad-top" [(ngModel)]="olympiad.lugar" name="lugar" type="text"  placeholder="Lugar" required=""/>
+                      </div>
+
+                      <div class="section">
+                          <h6>Hora</h6>
+                          <input id="fecha" class="pad-top" [(ngModel)]="olympiad.hora" name="hora" type="text"  placeholder="Hora" required=""/>
+                      </div>
+
+                      <div class="section">
+                          <h6>Teléfono</h6>
+                          <input id="fecha" class="pad-top" [(ngModel)]="olympiad.telefono" name="telefono" type="text"  placeholder="Teléfono" required=""/>
+                      </div>
+
+                      <div class="section">
+                          <h6>Dirección</h6>
+                          <input id="fecha" class="pad-top" [(ngModel)]="olympiad.direccion" name="direccion" type="text"  placeholder="text" required=""/>
+                      </div>
+                    </div>
+                    <div class="col 12 m12 l12">
+                      <button class="btn waves-effect waves-light btn-signup" type="submit"> Crear Olimpiada </button>
+                      <button class="btn waves-effect waves-light btn-signup" type="button" (click)="goBack()"> Volver </button>
+                    </div>
+                    
+                  </form>
+              </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </section>

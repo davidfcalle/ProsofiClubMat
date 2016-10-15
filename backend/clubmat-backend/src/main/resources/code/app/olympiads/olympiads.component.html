@@ -1,0 +1,50 @@
+<div class="container center"> 
+    <h3>Olimpiadas</h3>
+    <p>
+        Selecciona una olimpiada a la que te quieras inscribir.
+    </p>
+</div>
+<div class="row">
+    <div class="offset-m1 offset-l1 col s12 m10 l10"> 
+        <div> 
+            <table class ="responsive-table centered">
+                <thead class = "indigo accent-2 white-text">
+                <tr>
+                    <th data-field="nombre">Nombre</th>
+                    <th data-field="ciudad">Ciudad</th>
+                    <th data-field="lugar">Lugar</th>
+                    <th data-field="fecha">Fecha</th>
+                    <th data-field="hora">Hora</th>
+                    <th data-field="direccion">Direccion</th>
+                    <th data-field="tel">Telefono</th>
+                    <th data-field="organizador"> Organizador </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr *ngFor="let o of olympiads" (click)="changeSelectedOlympiad(o)" [class.selected]="selectedOlympiad == o">
+                    <td>{{o.nombre}}</td>
+                    <td>{{o.ciudad}}</td>
+                    <td>{{o.lugar}}</td>
+                    <td>{{o.fecha}}</td>
+                    <td>{{o.hora}}</td>
+                    <td>{{o.direccion}}</td>
+                    <td>{{o.telefono}}</td>
+                    <td>{{o.organizador.nombre}}</td>           
+                </tr>
+                </tbody>
+        
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class = "col s12 m5 l5 offset-m1 offset-l1">
+        <a class="waves-effect btn blue lighten-2 col s12 m5 l5 btn" routerLink="/olimpiadas/crear">Crear Olimpiada</a>  
+        <a class="waves-effect btn blue col s12 m5 l5 offset-m1 offset-l1 btn" (click)="editCurrentOlympiad()" >Editar Olimpiada</a>  
+    </div>
+    <div class="col s12 m5 l5">
+        <a class="waves-effect btn blue darken-2 col s12 m5 l5 btn" (click)="suscribe()">Inscribirse a Olimpiada</a> 
+        <a class="waves-effect btn blue darken-4 col s12 m6 l6 offset-m1 offset-l1" (click)="unsuscribe()">Descinscribirse de Olimpiada</a>   
+    </div>
+</div>

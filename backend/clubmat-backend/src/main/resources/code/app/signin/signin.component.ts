@@ -8,9 +8,12 @@ import { UserService } from '../services/user.service';
     templateUrl: "app/signin/signin.component.html"
 })
 export class SigninComponent {
+    
     username: string;
     password: string;
 
-    constructor(private usersService: UserService){}
+    constructor(private usersService: UserService){
+
+    }
 
 }
