@@ -30,7 +30,7 @@
                     <td>{{o.hora}}</td>
                     <td>{{o.direccion}}</td>
                     <td>{{o.telefono}}</td>
-                    <td>{{o.organizador.nombre}}</td>           
+                    <td>{{o.organizador.nombre}}  {{o.organizador.apellido}}</td>           
                 </tr>
                 </tbody>
         
@@ -46,5 +46,9 @@
     <div class="col s12 m5 l5">
         <a class="waves-effect btn blue darken-2 col s12 m5 l5 btn" (click)="suscribe()">Inscribirse a Olimpiada</a> 
         <a class="waves-effect btn blue darken-4 col s12 m6 l6 offset-m1 offset-l1" (click)="unsuscribe()">Descinscribirse de Olimpiada</a>   
+    </div>
+
+    <div class="offset-m1 offset-l1 col s12 m5 l5">
+        <a class="waves-effect btn blue darken-2 col s12 m5 l5 btn" (click)="viewDetail()">Ver información olimpiada</a>   
     </div>
 </div>

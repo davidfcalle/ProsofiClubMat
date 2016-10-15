@@ -17,6 +17,8 @@ import { QuestionEditComponent } from './question/question.edit.component';
 
 import { OlympiadsComponent } from './olympiads/olympiad.component';
 import { OlympiadCreateComponent } from './olympiads/olympiad.create.component';
+import { OlympiadDetailComponent } from './olympiads/olympiad.detail.component';
+import { OlympiadEditComponent } from './olympiads/olympiad.edit.component';
 
 import { SignupGuard } from './guards/signup.guard'; 
 
@@ -66,9 +68,17 @@ const appRoutes: Routes = [
     path: 'olimpiadas',
     component: OlympiadsComponent
   },
-   {
+  {
     path: 'olimpiadas/crear',
     component: OlympiadCreateComponent
+  },
+  {
+    path: 'olimpiadas/:id/detalle',
+    component: OlympiadDetailComponent
+  },
+  {
+    path: 'olimpiadas/:id/editar',
+    component: OlympiadEditComponent
   },
   {
     path: '',

@@ -7,10 +7,10 @@ import { Usuario } from '../models/usuario';
 import { OlympiadService } from '../services/olympiad.service';
 
 @Component({
-  selector: 'olympiad-edit',
-  templateUrl: 'app/olympiads/olympiad.edit.component.html'
+  selector: 'olympiad-detail',
+  templateUrl: 'app/olympiads/olympiad.detail.component.html'
 })
-export class OlympiadEditComponent implements OnInit {
+export class OlympiadDetailComponent implements OnInit {
 
   olympiad: Olimpiada;
   users: Usuario[];

@@ -64,6 +64,9 @@ public class OlimpiadaRestController {
 			return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		try{
 			olimpiada = olimpiadaRepository.findOne(olimpiada.getIdolimpiada());
+			if(olimpiada.getUsuarioList().contains(u)){
+				return  new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
+			}
 			olimpiada.getUsuarioList().add(u);
 			olimpiada = olimpiadaRepository.save(olimpiada);
 			return  new ResponseEntity<>(olimpiada, HttpStatus.OK);
@@ -79,7 +82,7 @@ public class OlimpiadaRestController {
 	 * @param olimpiada
 	 * @return
 	 */
-	@RequestMapping(value="/api/olimpiada/suscribe", produces="application/json", method = RequestMethod.POST)
+	@RequestMapping(value="/api/olimpiada/unsuscribe", produces="application/json", method = RequestMethod.POST)
 	public ResponseEntity<Olimpiada> unsuscribe(@RequestBody Olimpiada olimpiada){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();

@@ -13,8 +13,9 @@ export class OlympiadCreateComponent {
 
   olympiad: Olimpiada;
 
-  constructor(private olympiadService: OlympiadService ){
+  constructor(private olympiadService: OlympiadService){
     this.olympiad = new Olimpiada();
+    this.olympiad.initializeDeActivated();
   }
 
   onSubmit(){

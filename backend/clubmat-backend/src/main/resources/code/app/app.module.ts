@@ -27,6 +27,8 @@ import { UserEditComponent } from './users/user.edit.component';
 
 import { OlympiadsComponent } from './olympiads/olympiad.component';
 import { OlympiadCreateComponent } from './olympiads/olympiad.create.component';
+import { OlympiadDetailComponent } from './olympiads/olympiad.detail.component';
+import { OlympiadEditComponent } from './olympiads/olympiad.edit.component';
 
 import { UserService } from './services/user.service';
 import { InstitutionService } from './services/institution.service';
@@ -56,6 +58,8 @@ import { SignupGuard } from './guards/signup.guard';
     QuestionEditComponent,
     OlympiadsComponent,
     OlympiadCreateComponent,
+    OlympiadDetailComponent,
+    OlympiadEditComponent,
     MaterializeDirective
   ],
   providers:[

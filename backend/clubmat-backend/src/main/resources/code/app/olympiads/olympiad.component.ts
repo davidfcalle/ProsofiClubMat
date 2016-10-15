@@ -13,7 +13,7 @@ export class OlympiadsComponent implements OnInit {
   olympiads: Olimpiada[];
   selectedOlympiad: Olimpiada;
 
-  constructor(private olympiadService: OlympiadService){}
+  constructor(private olympiadService: OlympiadService, private router: Router){}
 
   ngOnInit(){
     this.updateOlympiadList();
@@ -21,6 +21,14 @@ export class OlympiadsComponent implements OnInit {
 
  changeSelectedOlympiad(olympiad: Olimpiada){
    this.selectedOlympiad = olympiad;
+ }
+
+ viewDetail(){
+    if(this.selectedOlympiad != null){
+      this.router.navigate([`/olimpiadas/${this.selectedOlympiad.idolimpiada}/detalle`]);
+    }else{
+      alert("Por favor seleccione la olimpiada a ver")
+    }
  }
 
  suscribe(){
@@ -52,7 +60,7 @@ export class OlympiadsComponent implements OnInit {
       alert(`Has dejado de estar inscrito a la olimpiada ${olympiad.nombre}`)
     })
     .catch(err =>{
-      alert("Error al suscribirse a una olimpiada");
+      alert("Error al suscribirse a una olimpiada, es posible que ya estés inscrito");
     });
  }
 
@@ -64,6 +72,15 @@ export class OlympiadsComponent implements OnInit {
         console.log(JSON.stringify(this.olympiads));
       })
       .catch(err => alert("Error al cargar las olimpiadas"));
+  }
+
+
+  editCurrentOlympiad(){
+    if(this.selectedOlympiad == null){
+      alert("Sebe seleccionar una olimpiada");
+      return;
+    }
+    this.router.navigate([`/olimpiadas/${this.selectedOlympiad.idolimpiada}/editar`])
   }
 
 }

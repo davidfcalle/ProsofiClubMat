@@ -1,6 +1,8 @@
 import { Injectable }    from '@angular/core';
 
 import  { Olimpiada } from '../models/olympiad';
+import  { Usuario } from '../models/usuario';
+
 import * as request from "superagent";
 
 @Injectable()
@@ -122,6 +124,20 @@ export class OlympiadService {
               return;
             }
             resolve(res.body as Olimpiada);
+          });
+      });
+    }
+
+    getUserList(id: number){
+      return new Promise<Usuario[]>((resolve,reject) =>{
+        request.get(`/api/olimpiada/${id}/usuarioList`)
+          .set('Accept', 'application/json')
+          .end((err, res) =>{
+            if(err){
+              reject(null);
+              return;
+            }
+            resolve(res.body._embedded.usuarios as Usuario[]);
           });
       });
     }
