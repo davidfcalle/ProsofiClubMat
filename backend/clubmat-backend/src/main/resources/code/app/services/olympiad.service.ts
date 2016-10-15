@@ -95,6 +95,37 @@ export class OlympiadService {
       })
     }
 
+    suscribeToOlympiad(olympiad: Olimpiada){
+      return new Promise<Olimpiada>((resolve,reject) =>{
+        request.post("/api/olimpiada/suscribe")
+          .send(olympiad)
+          .set('Accept', 'application/json')
+          .end((err, res) =>{
+            if(err){
+              reject(null);
+              return;
+            }
+            resolve(res.body as Olimpiada);
+          });
+      });
+    }
+
+
+    unSuscribeToOlympiad(olympiad: Olimpiada){
+      return new Promise<Olimpiada>((resolve,reject) =>{
+        request.post("/api/olimpiada/unsuscribe")
+          .send(olympiad)
+          .set('Accept', 'application/json')
+          .end((err, res) =>{
+            if(err){
+              reject(null);
+              return;
+            }
+            resolve(res.body as Olimpiada);
+          });
+      });
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);

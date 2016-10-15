@@ -48,4 +48,54 @@ public class OlimpiadaRestController {
 		}
 		
 	}
+	
+	/**
+	 * método que permite al usuario actual suscribirse a una olimpiada
+	 * @param olimpiada
+	 * @return
+	 */
+	@RequestMapping(value="/api/olimpiada/suscribe", produces="application/json", method = RequestMethod.POST)
+	public ResponseEntity<Olimpiada> suscribe(@RequestBody Olimpiada olimpiada){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		Usuario  u = usuarioRepository.findOneByUsuario(username);
+		
+		if(u == null)
+			return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		try{
+			olimpiada = olimpiadaRepository.findOne(olimpiada.getIdolimpiada());
+			olimpiada.getUsuarioList().add(u);
+			olimpiada = olimpiadaRepository.save(olimpiada);
+			return  new ResponseEntity<>(olimpiada, HttpStatus.OK);
+		}catch(Exception e ){
+			return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+	}
+	
+	
+	/**
+	 * método que permite al usuario actual suscribirse a una olimpiada
+	 * @param olimpiada
+	 * @return
+	 */
+	@RequestMapping(value="/api/olimpiada/suscribe", produces="application/json", method = RequestMethod.POST)
+	public ResponseEntity<Olimpiada> unsuscribe(@RequestBody Olimpiada olimpiada){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		Usuario  u = usuarioRepository.findOneByUsuario(username);
+		
+		if(u == null)
+			return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		try{
+			olimpiada = olimpiadaRepository.findOne(olimpiada.getIdolimpiada());
+			olimpiada.getUsuarioList().remove(u);
+			olimpiada = olimpiadaRepository.save(olimpiada);
+			return  new ResponseEntity<>(olimpiada, HttpStatus.OK);
+		}catch(Exception e ){
+			return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+	}
+	
 }

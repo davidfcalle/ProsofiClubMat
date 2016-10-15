@@ -23,6 +23,39 @@ export class OlympiadsComponent implements OnInit {
    this.selectedOlympiad = olympiad;
  }
 
+ suscribe(){
+
+   if(this.selectedOlympiad == null){
+     alert("Por favor seleccione una olimpada");
+     return;
+   }
+
+   this.olympiadService
+    .suscribeToOlympiad(this.selectedOlympiad)
+    .then(olympiad => {
+      alert(`Te has suscrito a la olimpiada ${olympiad.nombre}`)
+    })
+    .catch(err =>{
+      alert("Error al suscribirse a una olimpiada");
+    });
+ }
+
+ unsuscribe(){
+   if(this.selectedOlympiad == null){
+     alert("Por favor seleccione una olimpada");
+     return;
+   }
+
+   this.olympiadService
+    .unSuscribeToOlympiad(this.selectedOlympiad)
+    .then(olympiad => {
+      alert(`Has dejado de estar inscrito a la olimpiada ${olympiad.nombre}`)
+    })
+    .catch(err =>{
+      alert("Error al suscribirse a una olimpiada");
+    });
+ }
+
 
   updateOlympiadList(){
     this.olympiadService.getOlympiadList()
