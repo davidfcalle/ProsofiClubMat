@@ -6,9 +6,9 @@
                         <div class="col s12 m7">
                             <div class="row">
                                 <div class="signup-box">
-                                    <h1 class="login-title"> Prosofi Clubmat </h1>
+                                    <h1 class="login-title"> Editar Usuario </h1>
                                     <form action="" class="signup-form">
-                                        <h2> Regístrate como administrador o participante de una olimpiada matemática</h2>
+                                        <h2> Cambia los campos que quieras editar</h2>
                                         <div class="divider"></div>
                                         <div class="section">
                                             <input [(ngModel)]="user.usuario" type="text" name="username" placeholder="Nombre de Usuario" />
@@ -16,11 +16,9 @@
                                             <input [(ngModel)]="user.email" type="email" name="email" placeholder="Correo Electrónico" />
                                             <input [(ngModel)]="user.nombre" type="text" name="name" placeholder="Nombre" />
                                             <input [(ngModel)]="user.apellido" type="text" name="apellido" placeholder="Apellido" />
-                                            <input type="text" name="direccion" placeholder="Direcci&oacute;n" />
                                             <input [(ngModel)]="user.ciudad" type="text" name="ciudad" placeholder="Ciudad" />
                                             <input [(ngModel)]="user.telefono" type="text" name="celular" placeholder="Celular" />
-                                            <input type="text" name="rol" placeholder="Rol" />
-                                            <button class="btn waves-effect waves-light btn-signup" type="button" (click)="save()"> Editar Usuario </button>
+                                            <button class="btn waves-effect waves-light btn-signup" type="button" (click)="save()" style="margin-top:5%"> Editar Usuario </button>
                                         </div>
                                     </form>
                                 </div>

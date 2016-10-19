@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Usuario } from '../models/usuario';
+
+
+import { Usuario, ROLES } from '../models/usuario';
+
 import * as request from "superagent";
 
 @Component({
@@ -10,9 +13,13 @@ import * as request from "superagent";
 })
 export class SignupComponent implements OnInit {
 
+    
+    roles = ROLES;
+    
     user: Usuario;
 
     constructor() {
+
     }
 
     ngOnInit(): void {

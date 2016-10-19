@@ -105,6 +105,24 @@ export class UserService {
       })
     }
 
+    getCurrentUser(): Promise<Usuario>{
+      return new Promise<Usuario>((resolve, reject) => {
+        request
+          .get(`/api/currentUser/`)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              reject(null);
+            }else{
+              if(res.body == null){ // a pesar de que salio bien retorno un body nulo
+                reject(err);
+              }
+              resolve(res.body as Usuario);
+            }
+          });
+      });
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
