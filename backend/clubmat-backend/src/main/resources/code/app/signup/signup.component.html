@@ -19,11 +19,14 @@
                                             <input [(ngModel)]="user.email" type="email" name="email" placeholder="Correo Electrónico" />
                                             <input [(ngModel)]="user.nombre" type="text" name="name" placeholder="Nombre" />
                                             <input [(ngModel)]="user.apellido" type="text" name="apellido" placeholder="Apellido" />
-                                            <input type="text" name="direccion" placeholder="Direcci&oacute;n" />
                                             <input [(ngModel)]="user.ciudad" type="text" name="ciudad" placeholder="Ciudad" />
                                             <input [(ngModel)]="user.telefono" type="text" name="celular" placeholder="Celular" />
-                                            <input type="text" name="rol" placeholder="Rol" />
-                                            <button class="btn waves-effect waves-light btn-signup" type="button" (click)="signup()"> Crear Usuario </button>
+                                            <h6>Rol</h6>
+                                            <select class="browser-default" materialize="material_select" id="dificultad" name="dificultad" [(ngModel)]="user.rol">
+                                                <option selected disabled>Selecciona una opción</option>
+                                                <option *ngFor="let rol of roles" [value]="rol">{{rol}}</option>
+                                            </select>
+                                            <button class="btn waves-effect waves-light btn-signup" type="button" (click)="signup()" style="margin-top: 5%"> Crear Usuario </button>
                                         </div>
                                     </form>
                                 </div>
