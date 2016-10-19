@@ -24,12 +24,21 @@ import { QuestionEditComponent } from './question/question.edit.component';
 import { UserListComponent } from './users/users.component';
 import { UserEditComponent } from './users/user.edit.component';
 
+
 import { TestComponent } from './tests/tests.component';
 import { TestCreateComponent } from './tests/tests.create.component';
+
+
+import { OlympiadsComponent } from './olympiads/olympiad.component';
+import { OlympiadCreateComponent } from './olympiads/olympiad.create.component';
+import { OlympiadDetailComponent } from './olympiads/olympiad.detail.component';
+import { OlympiadEditComponent } from './olympiads/olympiad.edit.component';
+
 
 import { UserService } from './services/user.service';
 import { InstitutionService } from './services/institution.service';
 import { QuestionService } from './services/question.service'
+import { OlympiadService } from './services/olympiad.service'
 
 import { SignupGuard } from './guards/signup.guard'; 
 
@@ -52,15 +61,20 @@ import { SignupGuard } from './guards/signup.guard';
     QuestionsComponent,
     QuestionCreateComponent,
     QuestionEditComponent,
-    MaterializeDirective,
     TestComponent,
-    TestCreateComponent
+    TestCreateComponent,
+    OlympiadsComponent,
+    OlympiadCreateComponent,
+    OlympiadDetailComponent,
+    OlympiadEditComponent,
+    MaterializeDirective
   ],
   providers:[
     UserService,
     InstitutionService,
     SignupGuard,
-    QuestionService
+    QuestionService,
+    OlympiadService
   ],
   bootstrap: [ AppComponent ]
 })
