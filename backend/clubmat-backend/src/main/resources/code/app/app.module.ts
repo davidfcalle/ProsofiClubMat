@@ -24,6 +24,9 @@ import { QuestionEditComponent } from './question/question.edit.component';
 import { UserListComponent } from './users/users.component';
 import { UserEditComponent } from './users/user.edit.component';
 
+import { TestComponent } from './tests/tests.component';
+import { TestCreateComponent } from './tests/tests.create.component';
+
 import { UserService } from './services/user.service';
 import { InstitutionService } from './services/institution.service';
 import { QuestionService } from './services/question.service'
@@ -49,7 +52,9 @@ import { SignupGuard } from './guards/signup.guard';
     QuestionsComponent,
     QuestionCreateComponent,
     QuestionEditComponent,
-    MaterializeDirective
+    MaterializeDirective,
+    TestComponent,
+    TestCreateComponent
   ],
   providers:[
     UserService,

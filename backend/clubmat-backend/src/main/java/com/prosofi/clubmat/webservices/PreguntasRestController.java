@@ -32,7 +32,6 @@ public class PreguntasRestController {
 	@RequestMapping(value={"/api/preguntas/","/api/preguntas"} , method = RequestMethod.POST , produces = "application/json" )
 	public  ResponseEntity<?> createPregunta(@RequestBody Pregunta pregunta){
 		try{
-			System.out.println(pregunta);
 			ArrayList<Opcionpregunta> questions = new ArrayList<>(pregunta.getOpcionpreguntaList());
 			pregunta = preguntaRepository.save(pregunta);
 			for (Opcionpregunta opcion: questions) {

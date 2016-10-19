@@ -15,6 +15,10 @@ import { QuestionsComponent } from './question/questions.component';
 import { QuestionCreateComponent } from './question/question.create.component';
 import { QuestionEditComponent } from './question/question.edit.component';
 
+import {TestComponent} from './tests/tests.component'
+import {TestCreateComponent} from './tests/tests.create.component'
+
+
 import { SignupGuard } from './guards/signup.guard'; 
 
 const appRoutes: Routes = [
@@ -60,10 +64,19 @@ const appRoutes: Routes = [
     component: UserEditComponent
   },
   {
+      path : 'pruebas',
+      component: TestComponent
+  },
+   {
+      path : 'pruebas/:tipo/crear',
+      component: TestCreateComponent
+  },
+  {
     path: '',
     redirectTo: '/signup',
     pathMatch: 'full'
   },
+
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
