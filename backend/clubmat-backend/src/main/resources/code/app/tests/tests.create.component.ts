@@ -1,7 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
+
 import { Test } from "../models/test";
 import { DIFICULTADES } from "../models/pregunta";
+
+import { CreateTestDTO } from '../dto/CreateTestDTO';
+
+import { QuestionService } from '../services/question.service';
+import { TestService } from '../services/test.service';
 
 
 
@@ -10,34 +16,48 @@ import { DIFICULTADES } from "../models/pregunta";
     templateUrl: 'app/tests/tests.create.component.html',
 })
 export class TestCreateComponent implements OnInit {
-    dificultades : string[] = DIFICULTADES
-    prueba : Test;
-    tipo : string;
-    constructor (private route :ActivatedRoute, private router :Router){
-            this.prueba = new Test();
 
+    dificultades : string[] = DIFICULTADES
+    
+    prueba : CreateTestDTO;
+    
+    tipo : string;
+
+    temas: string[];
+
+    idPrueba: number;
+
+    constructor (private route :ActivatedRoute, private router :Router
+                    , private questionService: QuestionService, private testService: TestService){
+        this.prueba = new CreateTestDTO();
      }
 
 
     ngOnInit(){
-        console.log(this.route.params);
-        this.route.params.forEach( (params: Params ) =>{
+
+        this.route.params.forEach( (params: Params ) => {
           let t  = params['tipo'];
-          this.tipo = t;
+          if(t == "examen"){
+              this.prueba.prueba = false;
+          }else if(t == "ensayo"){
+              this.prueba.prueba = true;
+          }
         });
+
+        this.questionService.getQuestionTypes()
+            .then(types => this.temas = types)
+            .catch(err => alert("Error al cargar la lista de temas"));
+
     }
 
     onSubmit(): void {
-    /*this.questionService.createQuestion(this.question)
-      .then(question => {
-        alert(`Pregunta ${this.question.titulo} creada correctamente`);
-        this.question = new Pregunta();
-        this.question.initailizeEmptyQuestions();
-        this.question.initiualizeNotAproved();
-      }).catch( err => {
-        alert("Error al crear la pregunta");
-      });*/
-  }
+        this.testService.createTest(this.prueba)
+            .then(test => {
+                this.idPrueba = test.idprueba
+                //TODO: Navegar hacia la toma de la prueba
+            })
+            .catch(err => alert("No se puede crear una pruaba con los parametros establecidos. Revise la cantidad de preguntas disponibles para ese grado, dificultad y tema."));
+    }
 
     goBack(){
         window.history.back();

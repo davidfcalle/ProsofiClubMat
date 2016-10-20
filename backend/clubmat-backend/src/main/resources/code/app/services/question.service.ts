@@ -95,6 +95,24 @@ export class QuestionService {
       })
     }
 
+    getQuestionTypes(){
+       return new Promise<string[]>((resolve, reject)=>{
+         request
+          .get(`/api/preguntas/tipos/`)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              reject(null);
+            }else{
+              if(res.body == null){ // a pesar de que salio bien retorno un body nulo
+                reject(err);
+              }
+              resolve(res.body);
+            }
+          });
+      });
+    }
+    
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);

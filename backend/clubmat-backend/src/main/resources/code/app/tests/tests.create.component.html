@@ -1,5 +1,6 @@
-<div class ="yellow lighten-3 row" style="min-height:100vh">
-    <div class="container center col s12 m12 l12"> 
+<div class="container">
+<div class ="row" style="min-height:100vh">
+    <div class="col s12 m12 l12 center"> 
             <i class="material-icons prefix large" style ="color:black">assignment</i>
             <h3 style="margin-top:0">Crear Prueba</h3>
     </div>
@@ -10,7 +11,7 @@
         </p>
     </div>
     
-    <div class="container section center yellow lighten-2  col s12 m12 l12" style="min-height:10vh">                    
+    <div class="col s12 m12 l12" style="min-height:10vh">                    
         <form action="" class="signup-form" (ngSubmit)="onSubmit()">
                     <!-- Informaciòn Principal de la Pregunta -->
                     <div class="col s12 m12 l6 input-field">
@@ -25,7 +26,7 @@
                           <input id="numpreguntas" class="pad-top" [(ngModel)]="prueba.numpreguntas" name="numpreguntas" type="number"  placeholder="Numero de preguntas de la prueba" required=""/>
 
                           <h6>Grado</h6>
-                          <input id="nivelacademico" class="pad-top" [(ngModel)]="prueba.nivelacademico" name="nivelacademico" type="number"  placeholder="" required=""/>
+                          <input id="nivelacademico" class="pad-top" [(ngModel)]="prueba.grado" name="nivelacademico" type="number"  placeholder="" min="0" required=""/>
 
 
                           <h6>Dificultad</h6>
@@ -35,18 +36,20 @@
                           </select>
                      
                           <h6>Temática</h6>
-                          <input class="pad-top" [(ngModel)]="prueba.tematica" name="tema" type="text"  placeholder="Tema" required=""/>
+                          <select class="browser-default" materialize="material_select" id="tema" name="tema" [(ngModel)]="prueba.tema">
+                              <option selected disabled>Selecciona una opción</option>
+                              <option *ngFor="let tema of temas" [value]="tema">{{tema}}</option>
+                          </select>
                      </div>
+                    </div>
+                    <div class="col s12 m12 l12" style="min-height:10vh">                    
+                        <div class = "col s12 m12 l8">
+                            <button class="waves-effect btn blue accent-3 btn" type="submit">
+                                <i class="material-icons prefix left">next</i>Iniciar Prueba
+                            </button> 
+                        </div>
                     </div>
                   </form>
     </div>
-    <div class="container section center yellow lighten-1  col s12 m12 l12" style="min-height:10vh">                    
-                        <div class = "col s12 m12 l8">
-                            <a class="waves-effect btn blue accent-3 btn" routerLink="/pruebas/responder">
-                                <i class="material-icons prefix large">next</i>
-                                Iniciar Prueba
-                            </a> 
-                        </div>
     </div>
-
 </div>

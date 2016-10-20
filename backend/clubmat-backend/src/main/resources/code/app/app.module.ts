@@ -37,8 +37,9 @@ import { OlympiadEditComponent } from './olympiads/olympiad.edit.component';
 
 import { UserService } from './services/user.service';
 import { InstitutionService } from './services/institution.service';
-import { QuestionService } from './services/question.service'
-import { OlympiadService } from './services/olympiad.service'
+import { QuestionService } from './services/question.service';
+import { OlympiadService } from './services/olympiad.service';
+import { TestService } from './services/test.service';
 
 import { SignupGuard } from './guards/signup.guard'; 
 
@@ -74,8 +75,11 @@ import { SignupGuard } from './guards/signup.guard';
     InstitutionService,
     SignupGuard,
     QuestionService,
-    OlympiadService
+    OlympiadService,
+    TestService
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule {   }
+export class AppModule {  
+  
+ }
