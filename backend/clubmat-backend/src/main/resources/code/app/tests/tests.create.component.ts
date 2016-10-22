@@ -54,7 +54,7 @@ export class TestCreateComponent implements OnInit {
         this.testService.createTest(this.prueba)
             .then(test => {
                 this.idPrueba = test.idprueba
-                //TODO: Navegar hacia la toma de la prueba
+                this.router.navigate([`/pruebas/${this.idPrueba}/tomar`])
             })
             .catch(err => alert("No se puede crear una pruaba con los parametros establecidos. Revise la cantidad de preguntas disponibles para ese grado, dificultad y tema."));
     }

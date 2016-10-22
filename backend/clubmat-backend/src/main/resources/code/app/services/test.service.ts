@@ -9,18 +9,32 @@ import * as request from "superagent";
 @Injectable()
 export class TestService {
 
-    createTest(test: CreateTestDTO) {
-        return new Promise<Test>((resolve, reject) => {
-         request.post('/api/test/')
-            .send(test)
-            .set('Accept', 'application/json')
-            .end((err, res) =>{
-              if(err){
-                reject(null)
-              }else{
-                resolve(res.body as Test)
-              }
-            });
-      });
-    }
+  createTest(test: CreateTestDTO) {
+    return new Promise<Test>((resolve, reject) => {
+      request.post('/api/test/')
+        .send(test)
+        .set('Accept', 'application/json')
+        .end((err, res) =>{
+          if(err){
+            reject(null)
+          }else{
+            resolve(res.body as Test)
+          }
+        });
+    });
+  }
+
+  getTest(id: number){
+    return new Promise<Test>((resolve, reject) => {
+      request.get(`/api/prueba/${id}/?projection=preguntas`)
+        .set('Accept', 'application/json')
+        .end((err, res) =>{
+          if(err){
+            reject(null)
+          }else{
+            resolve(res.body as Test)
+          }
+        });
+    });
+  }
 }

@@ -16,9 +16,9 @@ import { QuestionCreateComponent } from './question/question.create.component';
 import { QuestionEditComponent } from './question/question.edit.component';
 
 
-import {TestComponent} from './tests/tests.component'
-import {TestCreateComponent} from './tests/tests.create.component'
-
+import { TestComponent } from './tests/tests.component'
+import { TestCreateComponent } from './tests/tests.create.component'
+import { TakeTestComponent } from './tests/take.tests.component';
 
 import { OlympiadsComponent } from './olympiads/olympiad.component';
 import { OlympiadCreateComponent } from './olympiads/olympiad.create.component';
@@ -77,6 +77,10 @@ const appRoutes: Routes = [
    {
       path : 'pruebas/:tipo/crear',
       component: TestCreateComponent
+   },
+   {
+      path : 'pruebas/:id/tomar',
+      component: TakeTestComponent
    },
    {
     path: 'olimpiadas',

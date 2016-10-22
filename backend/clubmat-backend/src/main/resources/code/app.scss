@@ -6,6 +6,7 @@ $placeholder-text-color: #a5a7aa;
 
 $secondary-color: #fafafa;
 $h2-color: #a5a7aa;
+$selected-color: #22CC88;
 
 
 body {
@@ -37,7 +38,7 @@ body {
 }
 
 .selected {
-    background-color: #22CC88;
+    background-color: $selected-color;
 }
 
 .active{
@@ -50,4 +51,8 @@ body {
 
 h6{
   color: black;
+}
+
+.collection .selected {
+    background-color: #ffff78;
 }

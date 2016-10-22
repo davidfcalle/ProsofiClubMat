@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
-import {MaterializeDirective} from "angular2-materialize";
+import { MaterializeDirective } from "angular2-materialize";
 
 
 import { routing } from './app.routing';
@@ -27,6 +27,7 @@ import { UserEditComponent } from './users/user.edit.component';
 
 import { TestComponent } from './tests/tests.component';
 import { TestCreateComponent } from './tests/tests.create.component';
+import { TakeTestComponent } from './tests/take.tests.component';
 
 
 import { OlympiadsComponent } from './olympiads/olympiad.component';
@@ -68,6 +69,7 @@ import { SignupGuard } from './guards/signup.guard';
     OlympiadCreateComponent,
     OlympiadDetailComponent,
     OlympiadEditComponent,
+    TakeTestComponent,
     MaterializeDirective
   ],
   providers:[

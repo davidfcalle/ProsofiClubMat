@@ -1,0 +1,57 @@
+<section id="main-container" *ngIf="inTest">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+              <div class="signup-box">
+                  <h5 > Examen En Progreso  - Cantidad de Correctas {{correct}}</h5>
+                  <form action="" class="signup-form" (ngSubmit)="onSubmit()">
+                       <div class="col s12 m12 l12">
+                        <h2 class="header">Pregunta #{{questionIndex + 1}}</h2>
+                        <div class="card horizontal">
+                        <div *ngIf="currentQuestion != null" class="card-stacked">
+                            <div class="card-content">
+                            <h5>{{currentQuestion.enunciado}}</h5>
+                              <div class="collection">
+                                <a *ngFor="let op of currentQuestion.opcionpreguntaList"  class="collection-item" (click)="changeSelectedOption(op)" [class.selected]="op == selectedOption">{{op.opcion}}</a>
+                              </div>
+                            </div>
+                            <div class="card-action">
+                              <a class="waves-effect waves-light btn" (click)="answerQuestion(selectedOption)"><i class="material-icons right">skip_next</i> &nbsp;Siguiente</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                  </form>
+              </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="main-container" *ngIf="!inTest">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+              <div class="signup-box">
+                  <h5> Resultados - {{correct}} Correctas</h5>
+                  <!-- resultados -->
+                  <div class="col s12 m12" *ngFor="let result of results">
+                    <div class="card horizontal">
+                      <div class="card-stacked">
+                        <div class="card-content">
+                          <h5>{{result.pregunta.enunciado}}</h5>
+                          <p>Selección: {{result.opcion.opcion}}  
+                            <i *ngIf="result.opcion.correcta" class="material-icons" style="color:green">done</i>
+                            <i *ngIf="!result.opcion.correcta" class="material-icons" style="color:red;">clear</i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+              </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  

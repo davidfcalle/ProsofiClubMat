@@ -20,6 +20,7 @@ import com.prosofi.clubmat.entities.Usuario;
 import com.prosofi.clubmat.entities.UsuarioOlimpiada;
 import com.prosofi.clubmat.projections.OlimpiadaFullProjection;
 import com.prosofi.clubmat.projections.PreguntaOpcionProjection;
+import com.prosofi.clubmat.projections.PruebaFullProjection;
 
 
 /**
@@ -52,6 +53,7 @@ public class RestApiConfiguration {
 			    // registro de proyecciones
 			    config.getProjectionConfiguration().addProjection(PreguntaOpcionProjection.class);
 			    config.getProjectionConfiguration().addProjection(OlimpiadaFullProjection.class);
+			    config.getProjectionConfiguration().addProjection(PruebaFullProjection.class);
 			}
 
 			@Override

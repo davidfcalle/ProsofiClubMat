@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "prueba")
 @XmlRootElement
-public class Prueba implements Serializable{
+public class Prueba implements Serializable {
 	
 	/**
 	 * 
