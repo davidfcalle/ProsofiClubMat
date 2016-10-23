@@ -9,7 +9,7 @@ import com.prosofi.clubmat.entities.Pregunta;
 import com.prosofi.clubmat.entities.Prueba;
 
 
-@Projection(name="preguntas", types = {Prueba.class, Pregunta.class})
+@Projection(name="preguntas", types = {Prueba.class})
 public interface PruebaFullProjection {
 	
 	public Integer getIdprueba();
