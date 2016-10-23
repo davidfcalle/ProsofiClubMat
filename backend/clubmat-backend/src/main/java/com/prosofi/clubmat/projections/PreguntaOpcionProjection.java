@@ -6,9 +6,8 @@ import org.springframework.data.rest.core.config.Projection;
 
 import com.prosofi.clubmat.entities.Opcionpregunta;
 import com.prosofi.clubmat.entities.Pregunta;
-import com.prosofi.clubmat.entities.Prueba;
 
-@Projection(name="preguntas", types = {Prueba.class, Pregunta.class })
+@Projection(name="preguntas", types = {Pregunta.class})
 public interface PreguntaOpcionProjection {
 	
 	Integer getIdpregunta();
