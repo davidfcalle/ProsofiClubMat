@@ -1,4 +1,1 @@
-docker build -t clubmatdb .
-docker run --name clubmatdb \
-    -P 3306:3306
-	-d clubmatdb
+mysqldump -uroot -padmin mysql clubmatematicas guia institucion noticia olimpiada opcionpregunta pregunta prueba prueba_pregunta reglacreacion usuario usuario_olimpiada usuariolimpiada  > mydb_tables.sql

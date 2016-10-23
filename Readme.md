@@ -3,14 +3,14 @@ Sistema de club de matemáticas de prosofi. El sistema se divide en 3 partes pri
 
 ## Backend
 
-El Backend es un api rest hecho en java que expone los servicios de negocio
+El Backend es un api rest hecho en java que expone los servicios de negocio. También se encarga de servir los archivos estáticos de la aplicación frontend.
 
 ## frontend
 
-Es un servidor web hecho en node.js que funciona con angular2
+Es un servidor web hecho en node.js que funciona con Angular2, se encuentra en la carpeta src/main/resources/code del proyecto de backend.
 
 ## DB
-La base de datos que se utilizará en MySQL 5.7
+La base de datos que se utilizará en MySQL 5.7. Dentro de esta carpeta se encuentra un dump base para poder correr la aplicación
 
 # Información importante
 
@@ -30,7 +30,6 @@ Clonar el repositorio, cambiarle el nombre de la carpeta a clubmat y cambiar de 
 ```sh
 $    git clone https://github.com/davidfcalle/ProsofiClubMat.git clubmat && cd clubmat
 ```
-
 
 
 Crear las imagenes

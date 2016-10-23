@@ -1,9 +1,9 @@
 clubmatbackend:
     build: ./backend
-    volumes:
-      - ./backend/clubmat-backend:/clubmat-backend
     links:
       - clubmatdb
+    ports:
+      - 80:80
 clubmatdb:
     build: ./db
     environment:

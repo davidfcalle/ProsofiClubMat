@@ -4,6 +4,7 @@
   "description": "Servidor Web para aplicación web Clubmat de Prosofi",
   "scripts": {
     "start": "tsc && concurrently \"gulp\" \"tsc -w\"",
+    "compile": "npm run tsc && npm run gulp",
     "pree2e": "npm run webdriver:update",
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
     "lint": "tslint ./app/**/*.ts -t verbose",
