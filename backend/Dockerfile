@@ -33,8 +33,9 @@ ADD /clubmat-backend /App
 
 WORKDIR /App/src/main/resources/code
 
-RUN npm install && npm run typings install && npm run tsc && \
-    npm rebuild node-sass && npm rebuild node-sass && npm run gulp
+RUN npm install 
+
+RUN npm run tsc &&  npm run gulp
 
 WORKDIR /App
 
