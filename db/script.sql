@@ -18,8 +18,8 @@
 --
 -- Table structure for table `clubmatematicas`
 --
-create database 'clubmatdb';
-USE 'clubmatdb';
+create database clubmatdb;
+USE clubmatdb;
 
 DROP TABLE IF EXISTS `clubmatematicas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
