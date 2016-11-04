@@ -35,7 +35,7 @@ WORKDIR /App/src/main/resources/code
 
 RUN npm install 
 
-RUN npm run tsc &&  npm run gulp
+RUN npm run typings install && npm run tsc &&  npm run gulp
 
 WORKDIR /App
 
