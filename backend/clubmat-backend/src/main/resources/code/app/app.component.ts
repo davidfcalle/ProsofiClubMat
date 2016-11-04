@@ -18,6 +18,7 @@ import { UserService } from './services/user.service';
                     <li routerLinkActive="active"><a class ="green accent-4" routerLink="/instituciones">Clubes</a></li>
                     <li routerLinkActive="active"><a class ="yellow accent-4" routerLink="/pruebas">Pruebas</a></li>
                     <li routerLinkActive="active"><a class ="orange accent-4" routerLink="/olimpiadas">Olimpiadas</a></li>
+                    <li routerLinkActive="active"><a class ="lime accent-4" routerLink="/usuarios">Usuarios</a></li>
                     <li routerLinkActive="active"><a class ="red accent-4"  routerLink="/preguntas">Preguntas</a></li>
                     <li *ngIf="currentUser != null"><a routerLink="/usuarios/{{currentUser.idusuario}}/editar"><i class="material-icons" style="max-height:100%">account_circle</i></a></li>
                     <li *ngIf="currentUser != null" routerLinkActive="active"><a routerLink="/usuarios/{{currentUser.idusuario}}/editar">{{currentUser.nombre}} - Rol: {{currentUser.rol}}</a></li>
