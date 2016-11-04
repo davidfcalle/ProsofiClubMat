@@ -23,6 +23,16 @@ Los dockerfiles que se encuentran definidos son para llevar la aplicación a pro
 * docker >= v1.12
 * docker-compose >= 1.7
 
+### Instalación de Docker
+
+Para que este proceso funcione correctamente es necesario ejecutar estos comandos como administrador.
+
+```sh
+  curl -sSL https://get.docker.com/ | sh
+  curl -L https://github.com/docker/compose/releases/download/1.8.1/run.sh > /usr/local/bin/docker-compose
+  chmod +x /usr/local/bin/docker-compose
+```
+
 # Proceso de ejecución
 
 Clonar el repositorio, cambiarle el nombre de la carpeta a clubmat y cambiar de directorio
