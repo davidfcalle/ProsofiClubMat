@@ -43,6 +43,8 @@ import { OlympiadService } from './services/olympiad.service';
 import { TestService } from './services/test.service';
 
 import { SignupGuard } from './guards/signup.guard'; 
+import { AdminGuard } from './guards/admin.guard'; 
+
 
 @NgModule({
   imports: [ 
@@ -76,6 +78,7 @@ import { SignupGuard } from './guards/signup.guard';
     UserService,
     InstitutionService,
     SignupGuard,
+    AdminGuard,
     QuestionService,
     OlympiadService,
     TestService

@@ -26,13 +26,15 @@ import { OlympiadDetailComponent } from './olympiads/olympiad.detail.component';
 import { OlympiadEditComponent } from './olympiads/olympiad.edit.component';
 
 
-import { SignupGuard } from './guards/signup.guard'; 
+import { SignupGuard } from './guards/signup.guard';
+import { AdminGuard } from './guards/admin.guard';
+ 
 
 const appRoutes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
-    canActivate:  [SignupGuard]
+    canActivate:  [AdminGuard]
   },
   {
     path: 'signin',
@@ -40,67 +42,82 @@ const appRoutes: Routes = [
   },
   {
     path: 'instituciones',
-    component: InstitutionListComponent
+    component: InstitutionListComponent,
+    canActivate:  [SignupGuard]
   },
    {
     path: 'instituciones/crear',
-    component: InstitutionCreateComponent
+    component: InstitutionCreateComponent,
+    canActivate:  [AdminGuard]
   },
   {
     path: 'instituciones/:id/editar',
-    component: InstitutionEditComponent
+    component: InstitutionEditComponent,
+    canActivate:  [AdminGuard]
   },
   {
     path: 'preguntas',
-    component: QuestionsComponent
+    component: QuestionsComponent,
+    canActivate:  [SignupGuard]
   },
   {
     path: 'preguntas/crear',
-    component: QuestionCreateComponent
+    component: QuestionCreateComponent,
+    canActivate:  [AdminGuard]
   },
   {
     path: 'preguntas/:id/editar',
-    component: QuestionEditComponent
+    component: QuestionEditComponent,
+    canActivate:  [AdminGuard]
   },
   {
     path: 'usuarios',
-    component: UserListComponent
+    component: UserListComponent,
+    canActivate:  [AdminGuard]
   },
   {
     path: 'usuarios/:id/editar',
-    component: UserEditComponent
+    component: UserEditComponent,
+    canActivate:  [SignupGuard]
   },
   {
       path : 'pruebas',
-      component: TestComponent
+      component: TestComponent,
+      canActivate:  [SignupGuard]
   },
    {
       path : 'pruebas/:tipo/crear',
-      component: TestCreateComponent
+      component: TestCreateComponent,
+      canActivate:  [AdminGuard]
    },
    {
       path : 'pruebas/:id/tomar',
-      component: TakeTestComponent
+      component: TakeTestComponent,
+      canActivate:  [SignupGuard]
    },
    {
     path: 'olimpiadas',
-    component: OlympiadsComponent
+    component: OlympiadsComponent,
+    canActivate:  [SignupGuard]
   },
   {
     path: 'olimpiadas/crear',
-    component: OlympiadCreateComponent
+    component: OlympiadCreateComponent,
+    canActivate:  [AdminGuard]
   },
   {
     path: 'olimpiadas/:id/detalle',
-    component: OlympiadDetailComponent
+    component: OlympiadDetailComponent,
+    canActivate:  [SignupGuard]
   },
   {
     path: 'olimpiadas/:id/editar',
-    component: OlympiadEditComponent
+    component: OlympiadEditComponent,
+    canActivate:  [AdminGuard]
   },
   {
     path: '',
-    redirectTo: '/signup',
+    redirectTo: '/pruebas',
     pathMatch: 'full'
   },
 
