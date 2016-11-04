@@ -344,7 +344,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Hernndez','Bogot','esteban','muti@mail.com','Esteban',NULL,'ADMIN',1234,'esteban',NULL,NULL),(2,'Calle','Bogot','david','david@mail.com','David',NULL,'ADMIN',1234,'david',NULL,NULL);
+INSERT INTO `usuario` VALUES (1,'Hernndez','Bogot','esteban','muti@mail.com','Esteban',NULL,'Administrador',1234,'esteban',NULL,NULL),(2,'Calle','Bogot','david','david@mail.com','David',NULL,'Administrador',1234,'david',NULL,NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 

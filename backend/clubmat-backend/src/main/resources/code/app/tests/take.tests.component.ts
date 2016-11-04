@@ -49,6 +49,9 @@ export class TakeTestComponent implements OnInit {
   }
 
   answerQuestion(option: OpcionPregunta){
+    if(this.selectedOption == null){
+      alert("Debe seleccionar una opción");
+    }
     this.allSelectedOptions.push(option);
     if(this.selectedOption.correcta == true){
       this.correct++;
@@ -70,6 +73,10 @@ export class TakeTestComponent implements OnInit {
   endTest(){
     alert("Felicitaciones Terminaste la prueba");
     this.getTestResults();
+    this.current.numcorrectas = this.correct;
+    this.testService.updateTest(this.current)
+      .then(test => console.log("Prueba Creada Exitosamente"))
+      .catch(err => alert("Error al guardar los resultados de la prueba"))
     this.inTest = false;
   }
 

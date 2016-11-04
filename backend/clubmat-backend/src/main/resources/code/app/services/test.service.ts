@@ -37,4 +37,24 @@ export class TestService {
         });
     });
   }
+
+  updateTest(test: Test): Promise<Test>{
+      return new Promise<Test>((resolve, reject) => {
+        request
+          .put(`/api/prueba/${test.idprueba}`)
+          .send(test)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              reject(null);
+            }else{
+              if(res.body == null){ // a pesar de que salio bien retorno un body nulo
+                reject(err);
+              }
+              resolve(res.body as Test);
+            }
+          });
+      })
+    }
+
 }
