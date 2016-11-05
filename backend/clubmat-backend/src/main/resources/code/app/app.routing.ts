@@ -88,7 +88,7 @@ const appRoutes: Routes = [
    {
       path : 'pruebas/:tipo/crear',
       component: TestCreateComponent,
-      canActivate:  [AdminGuard]
+      canActivate:  [SignupGuard]
    },
    {
       path : 'pruebas/:id/tomar',
