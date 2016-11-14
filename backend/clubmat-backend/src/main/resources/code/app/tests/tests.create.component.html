@@ -23,10 +23,10 @@
 
 
                           <h6>Numero de Preguntas</h6>
-                          <input id="numpreguntas" class="pad-top" [(ngModel)]="prueba.numpreguntas" name="numpreguntas" type="number"  placeholder="Numero de preguntas de la prueba" required=""/>
+                          <input min="1" id="numpreguntas" class="pad-top" [(ngModel)]="prueba.numpreguntas" name="numpreguntas" type="number"  placeholder="Numero de preguntas de la prueba" required=""/>
 
                           <h6>Grado</h6>
-                          <input id="nivelacademico" class="pad-top" [(ngModel)]="prueba.grado" name="nivelacademico" type="number"  placeholder="" min="0" required=""/>
+                          <input min="1" max="11" id="nivelacademico" class="pad-top" [(ngModel)]="prueba.grado" name="nivelacademico" type="number"  placeholder="" min="0" required=""/>
 
 
                           <h6>Dificultad</h6>
