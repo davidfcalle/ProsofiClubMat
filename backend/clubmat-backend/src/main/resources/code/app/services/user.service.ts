@@ -3,6 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import  { Usuario } from '../models/usuario';
+import  { Test } from '../models/test';
 import * as request from "superagent";
 
 @Injectable()
@@ -10,10 +11,12 @@ export class UserService {
 
     private usersUrl: string = '/api/usuario';
     private headers: Headers;
+    private currentUser: Usuario;
 
     constructor(private http: Http){ 
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json;charset=utf-8');
+        this.currentUser = null;
     }
 
     createUser(user: Usuario): Promise<Usuario> {
@@ -106,6 +109,13 @@ export class UserService {
     }
 
     getCurrentUser(): Promise<Usuario>{
+
+      if(this.currentUser != null){
+        return new Promise<Usuario>((resolve, reject)=>{
+          resolve(this.currentUser);
+        });
+      }
+
       return new Promise<Usuario>((resolve, reject) => {
         request
           .get(`/api/currentUser/`)
@@ -117,8 +127,25 @@ export class UserService {
               if(res.body == null){ // a pesar de que salio bien retorno un body nulo
                 reject(err);
               }
-              resolve(res.body as Usuario);
+              var current = res.body as Usuario;
+              this.currentUser = current; // esto solo se debería calcular una vez por inicio de sesión
+              resolve(current);
             }
+          });
+      });
+    }
+
+    getTestResults(user : Usuario): Promise<Test[]>{
+      return new Promise<Test[]>((resolve, reject) =>{
+        request
+          .get(`/api/usuarios/${user.idusuario}/tests`)
+          .set('Accept', 'application/json')
+          .end((err, res) =>{
+            if(err){
+              reject(null);
+              return;
+            }
+            resolve(res.body as Test[]);
           });
       });
     }

@@ -60,7 +60,7 @@ export class InstitutionListComponent implements OnInit {
             alert("Por favor seleccione una institución a eliminar");
         }
         else{
-            var shouldDelete : boolean = confirm(`¿Esta seguro de borrar la institución ${this.selectedIns.nombre} ?` );
+            var shouldDelete : boolean = confirm(`¿Está seguro de borrar la institución ${this.selectedIns.nombre} ?` );
             if(shouldDelete){
                 var curInstance = this;
                 request

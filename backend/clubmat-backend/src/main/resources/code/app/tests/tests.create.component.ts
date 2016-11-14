@@ -48,6 +48,8 @@ export class TestCreateComponent implements OnInit {
             .then(types => this.temas = types)
             .catch(err => alert("Error al cargar la lista de temas"));
 
+        (document.getElementById("fecha") as HTMLInputElement).valueAsDate = new Date();
+
     }
 
     onSubmit(): void {
