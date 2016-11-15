@@ -14,7 +14,7 @@ Adiciionalmente se requiere que aprenda las siguientes tecnologías antes de mod
 
 * Spring Boot, para el backend.
 * Angular2, para el frontend.
-* Typescript, se utiliza andgular2 con typescript-
+* Typescript, se utiliza angular2 con typescript
 * Docker, para el despliegue
 
 
