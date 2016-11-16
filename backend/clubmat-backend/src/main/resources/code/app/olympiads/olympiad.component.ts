@@ -77,7 +77,7 @@ export class OlympiadsComponent implements OnInit {
 
   editCurrentOlympiad(){
     if(this.selectedOlympiad == null){
-      alert("Sebe seleccionar una olimpiada");
+      alert("se debe seleccionar una olimpiada");
       return;
     }
     this.router.navigate([`/olimpiadas/${this.selectedOlympiad.idolimpiada}/editar`])

@@ -20,7 +20,7 @@
                           </select>
 
                           <h6>Grado</h6>
-                          <input id="nivelacademico" class="pad-top" [(ngModel)]="question.nivelacademico" name="nivelacademico" type="number"  placeholder="Grado (en número)" required=""/>
+                          <input min="1" max="11" id="nivelacademico" class="pad-top" [(ngModel)]="question.nivelacademico" name="nivelacademico" type="number"  placeholder="Grado (en número)" required=""/>
 
 
                           <h6>Dificultad</h6>
