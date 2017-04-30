@@ -17,6 +17,8 @@ import { InstitutionListComponent } from './institution/institution.component';
 import { InstitutionCreateComponent } from './institution/institution.create.component';
 import { InstitutionEditComponent } from './institution/institution.edit.component';
 
+import { ClubListComponent } from './clubs/club.component';
+
 import { QuestionsComponent } from './question/questions.component';
 import { QuestionCreateComponent } from './question/question.create.component';
 import { QuestionEditComponent } from './question/question.edit.component';
@@ -34,6 +36,7 @@ import { OlympiadsComponent } from './olympiads/olympiad.component';
 import { OlympiadCreateComponent } from './olympiads/olympiad.create.component';
 import { OlympiadDetailComponent } from './olympiads/olympiad.detail.component';
 import { OlympiadEditComponent } from './olympiads/olympiad.edit.component';
+import { OlympiadsResultComponent } from './olympiads/olympiad.results.component';
 
 
 import { UserService } from './services/user.service';
@@ -60,6 +63,7 @@ import { AdminGuard } from './guards/admin.guard';
     InstitutionListComponent,
     InstitutionCreateComponent,
     InstitutionEditComponent,
+    ClubListComponent,
     UserListComponent,
     UserEditComponent,
     QuestionsComponent,
@@ -71,6 +75,7 @@ import { AdminGuard } from './guards/admin.guard';
     OlympiadCreateComponent,
     OlympiadDetailComponent,
     OlympiadEditComponent,
+    OlympiadsResultComponent,
     TakeTestComponent,
     MaterializeDirective
   ],

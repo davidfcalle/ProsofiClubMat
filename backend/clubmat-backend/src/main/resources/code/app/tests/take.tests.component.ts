@@ -51,6 +51,7 @@ export class TakeTestComponent implements OnInit {
   answerQuestion(option: OpcionPregunta){
     if(this.selectedOption == null){
       alert("Debe seleccionar una opción");
+      return;
     }
     this.allSelectedOptions.push(option);
     if(this.selectedOption.correcta == true){

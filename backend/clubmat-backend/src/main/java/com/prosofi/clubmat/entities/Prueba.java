@@ -10,9 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -62,14 +60,17 @@ public class Prueba implements Serializable {
     private List<Pregunta> preguntaList; 
     
     
-    @JsonIgnore
-    @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
-    @ManyToOne
-    private Usuario idusuario;
+//    @JsonIgnore
+//    @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
+//    @ManyToOne
+//    private Usuario idusuario;
     
+    @JsonIgnore
+    @OneToMany(mappedBy = "idprueba", orphanRemoval = true)
+    private List<UsuarioPrueba> usuariosList;
     
     @JsonIgnore
-    @OneToMany(mappedBy = "idprueba")
+    @OneToMany(mappedBy = "idprueba", orphanRemoval = true)
     private List<Olimpiada> olimpiadaList;
 
     public Prueba() {
@@ -103,7 +104,15 @@ public class Prueba implements Serializable {
         this.tema = tema;
     }
 
-    public Integer getNumpreguntas() {
+    public List<UsuarioPrueba> getUsuariosList() {
+		return usuariosList;
+	}
+
+	public void setUsuariosList(List<UsuarioPrueba> usuariosList) {
+		this.usuariosList = usuariosList;
+	}
+
+	public Integer getNumpreguntas() {
         return numpreguntas;
     }
 
@@ -142,14 +151,6 @@ public class Prueba implements Serializable {
 
     public void setPreguntaList(List<Pregunta> preguntaList) {
         this.preguntaList = preguntaList;
-    }
-
-    public Usuario getIdusuario() {
-        return idusuario;
-    }
-
-    public void setIdusuario(Usuario idusuario) {
-        this.idusuario = idusuario;
     }
 
     @Override

@@ -41,7 +41,7 @@ export class TestService {
   updateTest(test: Test): Promise<Test>{
       return new Promise<Test>((resolve, reject) => {
         request
-          .put(`/api/prueba/${test.idprueba}`)
+          .put(`/api/test`)
           .send(test)
           .set('Accept', 'application/json')
           .end((err, res) => {
@@ -55,6 +55,20 @@ export class TestService {
             }
           });
       })
+    }
+
+    hasTaken(id:number){
+      return new Promise<Object>((resolve,reject) =>{
+        request.get("/api/test/hastaken?id="+id)
+          .set('Accept', 'application/json')
+          .end((err, res) =>{
+            if(err){
+              reject(null);
+              return;
+            }
+            resolve(JSON.stringify(res.body) as string);
+          });
+      });
     }
 
 }

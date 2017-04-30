@@ -24,6 +24,7 @@ import { OlympiadsComponent } from './olympiads/olympiad.component';
 import { OlympiadCreateComponent } from './olympiads/olympiad.create.component';
 import { OlympiadDetailComponent } from './olympiads/olympiad.detail.component';
 import { OlympiadEditComponent } from './olympiads/olympiad.edit.component';
+import { OlympiadsResultComponent } from './olympiads/olympiad.results.component';
 
 
 import { SignupGuard } from './guards/signup.guard';
@@ -54,6 +55,11 @@ const appRoutes: Routes = [
     path: 'instituciones/:id/editar',
     component: InstitutionEditComponent,
     canActivate:  [AdminGuard]
+  },
+  {
+    path: 'clubes',
+    component: InstitutionListComponent,
+    canActivate:  [SignupGuard]
   },
   {
     path: 'preguntas',
@@ -114,6 +120,11 @@ const appRoutes: Routes = [
     path: 'olimpiadas/:id/editar',
     component: OlympiadEditComponent,
     canActivate:  [AdminGuard]
+  },
+  {
+    path: 'olimpiadas/:id/resultados',
+    component: OlympiadsResultComponent,
+    canActivate: [SignupGuard]
   },
   {
     path: '',

@@ -2,15 +2,23 @@ import { Injectable }    from '@angular/core';
 
 import  { Olimpiada } from '../models/olympiad';
 import  { Usuario } from '../models/usuario';
+import  { Result } from '../models/result';
 
 import * as request from "superagent";
+
+import {Http, Response} from '@angular/http';
+import {Observable, Subject} from 'rxjs/Rx';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class OlympiadService {
 
-  createOlympiad(olympiad: Olimpiada): Promise<Olimpiada> {
+  constructor(http: Http){}
+
+  createOlympiad(olympiad: Olimpiada, grade: number): Promise<Olimpiada> {
       return new Promise<Olimpiada>((resolve, reject) => {
-         request.post('/api/olimpiada/')
+         request.post('/api/olimpiadas?grade='+grade)
             .send(olympiad)
             .set('Accept', 'application/json')
             .end((err, res) =>{
@@ -112,6 +120,19 @@ export class OlympiadService {
       });
     }
 
+    isSuscribe(id: number){
+      return new Promise<Object>((resolve,reject) =>{
+        request.get("/api/olimpiada/issuscribe?id="+id)
+          .set('Accept', 'application/json')
+          .end((err, res) =>{
+            if(err){
+              reject(null);
+              return;
+            }
+            resolve(JSON.stringify(res.body) as string);
+          });
+      });
+    }
 
     unSuscribeToOlympiad(olympiad: Olimpiada){
       return new Promise<Olimpiada>((resolve,reject) =>{
@@ -138,6 +159,24 @@ export class OlympiadService {
               return;
             }
             resolve(res.body._embedded.usuarios as Usuario[]);
+          });
+      });
+    }
+
+    getResultList(id:number): Promise<Result[]>{
+      return new Promise<Result[]>((resolve, reject)=>{
+         request
+          .get(`/api/olimpiada/results?idolympiad=${id}`)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              reject(null);
+            }else{
+              if(res.body == null){ // a pesar de que salio bien retorno un body nulo
+                reject(err);
+              }
+              resolve(res.body as Result[]);
+            }
           });
       });
     }

@@ -47,6 +47,11 @@
                           <h6>Dirección</h6>
                           <input id="fecha" class="pad-top" [(ngModel)]="olympiad.direccion" name="direccion" type="text"  placeholder="text" required=""/>
                       </div>
+
+                      <div class="section">
+                          <h6>Olimpiada para Curso:</h6>
+                          <input min="1" max="11" id="nivelacademico" class="pad-top" [(ngModel)]="grade" name="nivelacademico" type="number"  placeholder="" min="1" required=""/>
+                      </div>
                     </div>
                     <div class="col 12 m12 l12">
                       <button class="btn waves-effect waves-light btn-signup" type="submit"> Crear Olimpiada </button>

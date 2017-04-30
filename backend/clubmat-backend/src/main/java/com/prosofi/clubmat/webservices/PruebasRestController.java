@@ -2,10 +2,13 @@ package com.prosofi.clubmat.webservices;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -21,11 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prosofi.clubmat.datalayer.PreguntaRepository;
 import com.prosofi.clubmat.datalayer.PruebaRepository;
+import com.prosofi.clubmat.datalayer.UsuarioPruebaRepository;
 import com.prosofi.clubmat.datalayer.UsuarioRepository;
 import com.prosofi.clubmat.dto.CreateTestDTO;
 import com.prosofi.clubmat.entities.Pregunta;
 import com.prosofi.clubmat.entities.Prueba;
 import com.prosofi.clubmat.entities.Usuario;
+import com.prosofi.clubmat.entities.UsuarioPrueba;
 
 
 /**
@@ -47,6 +52,9 @@ public class PruebasRestController {
 	@Autowired
 	private PruebaRepository pruebaRepository;
 	
+	@Autowired
+	private UsuarioPruebaRepository usuarioPruebaRepository;
+	
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -57,6 +65,43 @@ public class PruebasRestController {
 	public List<String> darTiposPreguntas(){
 		Query q = em.createQuery("SELECT DISTINCT p.tematica FROM Pregunta p");
 		return q.getResultList();
+	}
+	
+	public Prueba crearPrueba(Integer grade){
+		List<Pregunta> opcionadas = (List<Pregunta>)em.createQuery("select p from Pregunta p where p.nivelacademico = :lvacadmico")
+				.setParameter("lvacadmico", grade+"")
+				.getResultList();
+		
+		if(opcionadas != null && opcionadas.isEmpty())
+			return null;
+		
+		Prueba prueba = new Prueba();
+		prueba.setUsuariosList(new ArrayList<>());
+		
+		long seed = System.nanoTime();
+		Collections.shuffle(opcionadas, new Random(seed));
+		
+		List<Pregunta> selected = new ArrayList<>();
+		
+		for(int i = 0; i < opcionadas.size(); i++){
+			selected.add(opcionadas.get(i));
+		}
+		
+		
+		prueba.setFecha(new Date());
+		prueba.setNumcorrectas(0);
+		prueba.setNumpreguntas(selected.size());
+		prueba.setTema("Olimpiada");
+		
+		prueba = pruebaRepository.save(prueba);
+		
+		
+		for (Pregunta pregunta : selected) {
+			pregunta.getPruebaList().add(prueba);
+		}
+		
+		preguntaRepository.save(selected);
+		return prueba;
 	}
 	
 	/**
@@ -97,12 +142,11 @@ public class PruebasRestController {
 		prueba.setTema(create.getTema());
 		
 		//si se quiere guardar la prueba se le debe asociar un usuario.
-		if(!create.getPrueba()){
-			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-			String username = auth.getName();
-			Usuario  u = usuarioRepository.findOneByUsuario(username);
-			prueba.setIdusuario(u);
-		}
+//		if(!create.getPrueba()){
+//			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//			String username = auth.getName();
+//			Usuario  u = usuarioRepository.findOneByUsuario(username);
+//		}
 		
 		
 		prueba = pruebaRepository.save(prueba);
@@ -114,5 +158,58 @@ public class PruebasRestController {
 		preguntaRepository.save(selected);
 		
 		return new ResponseEntity<Prueba>(prueba, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/api/test",produces="application/json", method = RequestMethod.PUT)
+	public ResponseEntity<?> updatePrueba(@RequestBody Prueba prueba){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		Usuario  u = usuarioRepository.findOneByUsuario(username);
+		
+		UsuarioPrueba usuarioPrueba = new UsuarioPrueba();
+		usuarioPrueba.setIdprueba(prueba.getIdprueba());
+		usuarioPrueba.setIdusuario(u.getIdusuario());
+		usuarioPrueba.setNumCorrectas(prueba.getNumcorrectas());
+		
+		prueba = pruebaRepository.findOne(prueba.getIdprueba());
+		
+		usuarioPrueba = usuarioPruebaRepository.save(usuarioPrueba);
+		if(u.getPruebasList() == null)
+			u.setPruebasList(new ArrayList<>());
+		u.getPruebasList().add(usuarioPrueba);
+		u = usuarioRepository.save(u);
+		
+		if(prueba.getUsuariosList() == null)
+			prueba.setUsuariosList(new ArrayList<>());
+		prueba.getUsuariosList().add(usuarioPrueba);
+		prueba = pruebaRepository.save(prueba);
+		return new ResponseEntity<Prueba>(prueba,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/api/test/hastaken",produces="application/json", method = RequestMethod.GET)
+	public ResponseEntity<?> hasTaken(Integer id){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		Usuario  u = usuarioRepository.findOneByUsuario(username);
+		
+		if(u == null || id == null)
+			return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		StringBuilder sql = new StringBuilder("SELECT usu ")
+				.append("FROM UsuarioPrueba usu ")
+				.append("WHERE usu.idusuario = :idusuario ")
+				.append("AND usu.idprueba = :idprueba");
+		try{
+			UsuarioPrueba usuarioPrueba = (UsuarioPrueba)em.createQuery(sql.toString())
+					.setParameter("idusuario", u.getIdusuario())
+					.setParameter("idprueba", id)
+					.getSingleResult();
+			if(usuarioPrueba == null)
+				return  new ResponseEntity<>(new HashMap<String,Boolean>(){{put("value",false);}}, HttpStatus.OK);
+			return new ResponseEntity<Object>(new HashMap<String,Boolean>(){{put("value",true);}},HttpStatus.OK);
+		}catch(NoResultException ex){
+			return  new ResponseEntity<>(new HashMap<String,Boolean>(){{put("value",false);}}, HttpStatus.OK);
+		}catch(Exception e ){
+			return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 }
