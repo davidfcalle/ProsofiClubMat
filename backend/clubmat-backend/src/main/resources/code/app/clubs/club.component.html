@@ -1,0 +1,37 @@
+<div class="container center"> 
+    <h3>Clubes Inscritas</h3>
+    <p>
+        Los siguientes son los clubes asociadas a CLUBMAT. Si quieres que tu club forme parte de esta comunidad. Comunícate con Nosotros.
+    </p>
+</div>
+<div class="row">
+    <div class="offset-m1 offset-l1 col s12 m10 l10"> 
+        <div> 
+            <table class ="responsive-table centered">
+                <thead class = "indigo accent-2 white-text">
+                <tr>
+                    <th data-field="name">Nombre</th>
+                    <th data-field="name">Lema</th>
+                    <th data-field="name">Institución</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr *ngFor="let c of clubs" (click)="changeSelectedIntitution(c)" [class.selected-inst]="selectedClub == c">
+                    <td>{{c.nombre}}</td>
+                    <td>{{c.lema}}</td>
+                    <td>{{c.institucion}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class = "col s12 m5 l5 offset-m1 offset-l1">
+        <a class="waves-effect btn blue lighten-2 col s12 m5 l5 btn" routerLink="/clubes/crear">Crear Club</a>  
+        <a class="waves-effect btn blue col s12 m5 l5 offset-m1 offset-l1 btn" (click)="editCurrentClub()" >Editar Club</a>  
+    </div>
+    <div class="col s12 m5 l5">
+        <a class="waves-effect btn blue darken-2 col s12 m5 l5 btn" (click)="goBack()">Volver</a>
+    </div>
+</div>

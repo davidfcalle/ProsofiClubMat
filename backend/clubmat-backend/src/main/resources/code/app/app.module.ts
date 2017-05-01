@@ -18,6 +18,8 @@ import { InstitutionCreateComponent } from './institution/institution.create.com
 import { InstitutionEditComponent } from './institution/institution.edit.component';
 
 import { ClubListComponent } from './clubs/club.component';
+import { ClubCreateComponent } from './clubs/club.create.component';
+import { ClubEditComponent } from './clubs/club.edit.component';
 
 import { QuestionsComponent } from './question/questions.component';
 import { QuestionCreateComponent } from './question/question.create.component';
@@ -44,6 +46,7 @@ import { InstitutionService } from './services/institution.service';
 import { QuestionService } from './services/question.service';
 import { OlympiadService } from './services/olympiad.service';
 import { TestService } from './services/test.service';
+import { ClubService } from './services/club.service';
 
 import { SignupGuard } from './guards/signup.guard'; 
 import { AdminGuard } from './guards/admin.guard'; 
@@ -64,6 +67,8 @@ import { AdminGuard } from './guards/admin.guard';
     InstitutionCreateComponent,
     InstitutionEditComponent,
     ClubListComponent,
+    ClubCreateComponent,
+    ClubEditComponent,
     UserListComponent,
     UserEditComponent,
     QuestionsComponent,
@@ -86,7 +91,8 @@ import { AdminGuard } from './guards/admin.guard';
     AdminGuard,
     QuestionService,
     OlympiadService,
-    TestService
+    TestService,
+    ClubService
   ],
   bootstrap: [ AppComponent ]
 })

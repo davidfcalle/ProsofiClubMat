@@ -1,34 +1,47 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Club } from "../models/club";
-import { InstitutionService } from "../services/institution.service";
+import { ClubDTO } from "../dto/clubDTO";
+import { Institucion } from '../models/institucion';
+import { ClubService } from "../services/club.service";
 import * as request from "superagent";
 
 @Component({
     selector: 'clubList',
-    templateUrl: 'app/institution/institution.component.html',
+    templateUrl: 'app/clubs/club.component.html',
     styleUrls: ['app/institution/institution.component.css']
 })
 export class ClubListComponent implements OnInit {
 
-    clubs: Club[];
+    clubs: ClubDTO[];
+    selectedClub: ClubDTO;
+
+    constructor (private router: Router,
+        private clubService: ClubService){
+
+     }
+
+     changeSelectedIntitution(club: ClubDTO): void{
+         this.selectedClub = club;
+     }
 
     ngOnInit(): void {
-         //this.getInstitutions(); 
+         this.clubService.getClubs()
+            .then(res => this.clubs = res, error => alert('error'));
     }
 
-    getInstitutions(): void{
-         var call = this;
-         request
-            .get('/api/club?size=99999')
-            .end(function(err, res){
-                if(err){
-                    alert("Error al obtener las instituciones");
-                    return;
-                }
-                var institutionsRes = res.body._embedded.instituciones as Club[]
-                console.log(institutionsRes);
-                call.clubs = institutionsRes;
-            });
+     editCurrentClub(){
+         if(this.selectedClub == null){
+             alert('Debe seleccionar un club para editar.');
+             return;
+         }
+         this.router.navigate([`/clubes/${this.selectedClub.idclub}/editar`]);
+     }
+
+     deleteClub(){
+
+     }
+
+     goBack(){
+         window.history.back();
      }
 }

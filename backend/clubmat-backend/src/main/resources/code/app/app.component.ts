@@ -16,7 +16,7 @@ import { UserService } from './services/user.service';
                     <li routerLinkActive="active"><a class ="light-blue accent-4" routerLink="/signin">Iniciar Sesión</a></li>
                     <li routerLinkActive="active"><a class ="teal accent-4" routerLink="/instituciones">Instituciones</a></li>
                     <li routerLinkActive="active"><a class ="green accent-4" routerLink="/clubes">Clubes</a></li> 
-                    <li routerLinkActive="active"><a class ="yellow accent-4" routerLink="/pruebas">Pruebas</a></li>
+                    <!-- <li routerLinkActive="active"><a class ="yellow accent-4" routerLink="/pruebas">Pruebas</a></li> -->
                     <li routerLinkActive="active"><a class ="orange accent-4" routerLink="/olimpiadas">Olimpiadas</a></li>
                     <li routerLinkActive="active"><a class ="lime accent-4" routerLink="/usuarios">Usuarios</a></li>
                     <li routerLinkActive="active"><a class ="red accent-4"  routerLink="/preguntas">Preguntas</a></li>
@@ -31,7 +31,7 @@ import { UserService } from './services/user.service';
                     <li routerLinkActive="active"><a class ="teal accent-4" routerLink="/instituciones">Instituciones</a></li>
                     <li routerLinkActive="active"><a class ="green accent-4" routerLink="/clubes">Clubes</a></li>
                     <li routerLinkActive="active"><a class ="lime accent-4" routerLink="/usuarios">Usuarios</a></li>
-                    <li routerLinkActive="active"><a class ="yellow accent-4" routerLink="/pruebas">Pruebas</a></li>
+                    <!-- <li routerLinkActive="active"><a class ="yellow accent-4" routerLink="/pruebas">Pruebas</a></li> -->
                     <li routerLinkActive="active"><a class ="orange accent-4" routerLink="/instituciones">Olimpiadas</a></li>
                     <li routerLinkActive="active"><a class ="red accent-4"  routerLink="/preguntas">Preguntas</a></li>
                     <li><a class ="red accent-4" href="/logout">Cerrar Sesión</a></li>

@@ -153,18 +153,13 @@ public class OlimpiadaRestController {
 		
 		List<ResultsDTO> listResults = new ArrayList<>();
 		
-		//Join with clubs and institution.
-//		StringBuilder sql = new StringBuilder("SELECT usu.numCorrectas AS numCorrectas, u.nombre AS nombreEstudiante, ")
-//				.append("u.apellido AS apellidoEstudiante ")
-//				.append("FROM UsuarioPrueba usu ")
-//				.append("JOIN Usuario u ")
-//				.append("WHERE usu.idprueba = :idprueba");
-		
 		StringBuilder sql = new StringBuilder("SELECT usu.num_correctas AS numCorrectas, u.nombre AS nombreEstudiante, ")
-				.append("u.apellido AS apellidoEstudiante ")
-				.append("FROM usuarioprueba usu, usuario u ")
+				.append("u.apellido AS apellidoEstudiante, cl.nombreclub AS club, inst.nombre AS institucion ")
+				.append("FROM usuarioprueba usu, usuario u, clubmatematicas cl, institucion inst ")
 				.append("WHERE usu.idprueba = :idprueba ")
 				.append("AND usu.idusuario = u.idusuario ")
+				.append("AND cl.idinstitucion = inst.idinstitucion ")
+				.append("AND u.idclub = cl.idclub ")
 				.append("ORDER BY usu.num_correctas DESC");
 		
 		try{
@@ -176,6 +171,8 @@ public class OlimpiadaRestController {
 				result.setNumCorrectas((Integer)object[0]);
 				result.setNombreEstudiante((String)object[1]);
 				result.setApellidoEstudiante((String)object[2]);
+				result.setClub((String)object[3]);
+				result.setInstitucion((String)object[4]);
 				listResults.add(result);
 			}
 			return new ResponseEntity<List<ResultsDTO>>(listResults,HttpStatus.OK);
