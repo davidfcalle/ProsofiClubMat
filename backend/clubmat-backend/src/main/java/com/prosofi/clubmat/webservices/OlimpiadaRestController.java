@@ -1,5 +1,6 @@
 package com.prosofi.clubmat.webservices;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,10 +63,10 @@ public class OlimpiadaRestController {
 			nueva.setOrganizador(u);
 			
 			if(grade != null){
-				prueba = pruebaController.crearPrueba(grade);
+				prueba = pruebaController.crearPrueba(grade,20);
 			}
 			if(prueba == null)
-				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			nueva.setIdprueba(prueba);
 			nueva = olimpiadaRepository.save(nueva);
 			return  new ResponseEntity<>(nueva, HttpStatus.OK);
@@ -154,13 +155,13 @@ public class OlimpiadaRestController {
 		List<ResultsDTO> listResults = new ArrayList<>();
 		
 		StringBuilder sql = new StringBuilder("SELECT usu.num_correctas AS numCorrectas, u.nombre AS nombreEstudiante, ")
-				.append("u.apellido AS apellidoEstudiante, cl.nombreclub AS club, inst.nombre AS institucion ")
+				.append("u.apellido AS apellidoEstudiante, cl.nombreclub AS club, inst.nombre AS institucion, usu.time ")
 				.append("FROM usuarioprueba usu, usuario u, clubmatematicas cl, institucion inst ")
 				.append("WHERE usu.idprueba = :idprueba ")
 				.append("AND usu.idusuario = u.idusuario ")
 				.append("AND cl.idinstitucion = inst.idinstitucion ")
 				.append("AND u.idclub = cl.idclub ")
-				.append("ORDER BY usu.num_correctas DESC");
+				.append("ORDER BY usu.num_correctas DESC, usu.time");
 		
 		try{
 			List<Object[]> list = em.createNativeQuery(sql.toString())
@@ -173,12 +174,38 @@ public class OlimpiadaRestController {
 				result.setApellidoEstudiante((String)object[2]);
 				result.setClub((String)object[3]);
 				result.setInstitucion((String)object[4]);
+				result.setDuracion(formatearTiempo((BigInteger)object[5]));
 				listResults.add(result);
 			}
 			return new ResponseEntity<List<ResultsDTO>>(listResults,HttpStatus.OK);
 		}catch(NoResultException ex){
 			return new ResponseEntity<Object>(new ArrayList<>(),HttpStatus.OK);
 		}
+	}
+	
+	private String formatearTiempo(BigInteger time){
+		StringBuilder tiempoFormateado = new StringBuilder();
+		// convert time to seconds
+		Integer tiempo = time.intValue() / 1000;
+		Integer minutos = tiempo/60;
+		if(minutos >= 60){
+			// Hours
+			Integer horas = minutos / 60;
+			minutos = minutos - (horas*60);
+			Integer segundos = tiempo - ((horas*60*60)+(minutos*60));
+			tiempoFormateado.append(horas<10?"0"+horas:horas.toString())
+				.append(":")
+				.append(minutos<10?"0"+minutos:minutos.toString())
+				.append(":")
+				.append(segundos<10?"0"+segundos:segundos.toString());
+		}else{
+			tiempoFormateado.append("00:");
+			Integer segundos = tiempo - (minutos*60);
+			tiempoFormateado.append(minutos<10?"0"+minutos:minutos.toString())
+				.append(":")
+				.append(segundos<10?"0"+segundos:segundos.toString());		
+		}
+		return tiempoFormateado.toString();
 	}
 	
 }

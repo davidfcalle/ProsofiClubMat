@@ -5,4 +5,5 @@ export class Result{
     numCorrectas: number;
     institucion: string;
     club: string;
+    duracion: string;
 }

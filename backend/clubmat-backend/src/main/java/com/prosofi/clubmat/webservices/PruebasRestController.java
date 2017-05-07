@@ -55,6 +55,8 @@ public class PruebasRestController {
 	@Autowired
 	private UsuarioPruebaRepository usuarioPruebaRepository;
 	
+	private static String clasificacionPregunta = "Olimpiada";
+	
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -67,12 +69,16 @@ public class PruebasRestController {
 		return q.getResultList();
 	}
 	
-	public Prueba crearPrueba(Integer grade){
-		List<Pregunta> opcionadas = (List<Pregunta>)em.createQuery("select p from Pregunta p where p.nivelacademico = :lvacadmico")
+	public Prueba crearPrueba(Integer grade,int cantidad){
+		List<Pregunta> opcionadas = 
+				(List<Pregunta>)em.createQuery("select p from Pregunta p "
+						+ "where p.nivelacademico = :lvacadmico "
+						+ "and p.clasificacion = :clasificacion")
 				.setParameter("lvacadmico", grade+"")
+				.setParameter("clasificacion", clasificacionPregunta)
 				.getResultList();
 		
-		if(opcionadas != null && opcionadas.isEmpty())
+		if((opcionadas != null && opcionadas.isEmpty()) || opcionadas.size() < cantidad)
 			return null;
 		
 		Prueba prueba = new Prueba();
@@ -83,7 +89,7 @@ public class PruebasRestController {
 		
 		List<Pregunta> selected = new ArrayList<>();
 		
-		for(int i = 0; i < opcionadas.size(); i++){
+		for(int i = 0;i < cantidad && i < opcionadas.size(); i++){
 			selected.add(opcionadas.get(i));
 		}
 		
@@ -161,7 +167,10 @@ public class PruebasRestController {
 	}
 	
 	@RequestMapping(value = "/api/test",produces="application/json", method = RequestMethod.PUT)
-	public ResponseEntity<?> updatePrueba(@RequestBody Prueba prueba){
+	public ResponseEntity<?> updatePrueba(@RequestBody Prueba prueba, Long time){
+		if(time == null)
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
 		Usuario  u = usuarioRepository.findOneByUsuario(username);
@@ -170,6 +179,7 @@ public class PruebasRestController {
 		usuarioPrueba.setIdprueba(prueba.getIdprueba());
 		usuarioPrueba.setIdusuario(u.getIdusuario());
 		usuarioPrueba.setNumCorrectas(prueba.getNumcorrectas());
+		usuarioPrueba.setTime(time);
 		
 		prueba = pruebaRepository.findOne(prueba.getIdprueba());
 		

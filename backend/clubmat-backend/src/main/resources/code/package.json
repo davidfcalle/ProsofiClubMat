@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Servidor Web para aplicación web Clubmat de Prosofi",
   "scripts": {
-    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
+    "start": "tsc && concurrently \"gulp\" \"tsc -w\"",
     "compile": "npm run tsc && npm run gulp",
     "pree2e": "npm run webdriver:update",
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",

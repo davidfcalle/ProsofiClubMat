@@ -25,7 +25,10 @@ export class OlympiadService {
               if(err){
                 reject(null)
               }else{
-                resolve(res.body as Olimpiada)
+                if(res.status == 204)
+                  reject('No preguntas suficientes para ese curso');
+                else
+                  resolve(res.body as Olimpiada)
               }
             });
       });

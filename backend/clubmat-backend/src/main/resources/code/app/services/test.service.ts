@@ -38,10 +38,10 @@ export class TestService {
     });
   }
 
-  updateTest(test: Test): Promise<Test>{
+  updateTest(test: Test,time:number): Promise<Test>{
       return new Promise<Test>((resolve, reject) => {
         request
-          .put(`/api/test`)
+          .put(`/api/test?time=${time}`)
           .send(test)
           .set('Accept', 'application/json')
           .end((err, res) => {

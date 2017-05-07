@@ -5,6 +5,9 @@ import { Usuario } from "../models/usuario";
 import { OlympiadService } from "../services/olympiad.service";
 import { TestService } from "../services/test.service";
 
+interface MyObj{
+    value:boolean;    
+}
 
 @Component ({
     selector: 'olympiads',
@@ -101,13 +104,13 @@ export class OlympiadsComponent implements OnInit {
     let response:Object;
     this.olympiadService.isSuscribe(this.selectedOlympiad.idolimpiada)
         .then(res => {
-          res = JSON.parse(res);
-          if(res.value){
+          let ress:MyObj = JSON.parse(<string> res);
+          if(ress.value){
             // check if user already has taken the test
             this.testService.hasTaken(this.selectedOlympiad.idprueba.idprueba)
               .then(resp => {
-                resp = JSON.parse(resp);
-                if(resp.value){
+                let respp:MyObj = JSON.parse(<string> resp);
+                if(respp.value){
                   alert("Usted ya tomó la prueba.");
                 }else{
                   this.router.navigate(['/pruebas/'+this.selectedOlympiad.idprueba.idprueba+'/tomar']);

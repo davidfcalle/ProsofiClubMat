@@ -19,9 +19,11 @@ export class OlympiadsResultComponent implements OnInit {
         ){}
 
     ngOnInit(){
-        let id = this.activatedRoute.url.value[1].path;
-        this.olympiadService.getResultList(id)
+        this.activatedRoute.params.forEach( (params: Params ) =>{
+            let id = +params['id'];
+            this.olympiadService.getResultList(id)
                 .then(resp => this.results = resp, 
                     error => alert("Error"));
+        });
     }
 }

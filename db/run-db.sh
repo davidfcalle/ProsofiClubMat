@@ -1,1 +1,1 @@
-mysqldump -uroot -padmin mysql clubmatematicas guia institucion noticia olimpiada opcionpregunta pregunta prueba prueba_pregunta reglacreacion usuario usuario_olimpiada usuariolimpiada  > mydb_tables.sql
+mysqldump -uroot -ppassword mysql clubmatematicas guia institucion noticia olimpiada opcionpregunta pregunta prueba prueba_pregunta reglacreacion usuario usuario_olimpiada usuariolimpiada usuarioprueba > mydb_tables.sql

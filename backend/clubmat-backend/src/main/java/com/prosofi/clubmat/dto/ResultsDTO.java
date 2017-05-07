@@ -11,6 +11,7 @@ public class ResultsDTO implements Serializable{
 	private Integer numCorrectas;
 	private String institucion;
 	private String club;
+	private String duracion;
 	
 	public String getNombreEstudiante() {
 		return nombreEstudiante;
@@ -50,5 +51,13 @@ public class ResultsDTO implements Serializable{
 	
 	public void setClub(String club) {
 		this.club = club;
+	}
+
+	public String getDuracion() {
+		return duracion;
+	}
+
+	public void setDuracion(String duracion) {
+		this.duracion = duracion;
 	}
 }

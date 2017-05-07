@@ -37,6 +37,9 @@ public class UsuarioPrueba implements Serializable{
 	
 	@JsonIgnore
 	private Integer numCorrectas;
+	
+	@JsonIgnore
+	private Long time;
 
 	public Integer getIdusuarioprueba() {
 		return idusuarioprueba;
@@ -68,5 +71,13 @@ public class UsuarioPrueba implements Serializable{
 
 	public void setNumCorrectas(Integer numCorrectas) {
 		this.numCorrectas = numCorrectas;
+	}
+
+	public Long getTime() {
+		return time;
+	}
+
+	public void setTime(Long time) {
+		this.time = time;
 	}
 }

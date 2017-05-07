@@ -27,7 +27,7 @@ export class OlympiadCreateComponent {
         alert(`Olimpiada ${this.olympiad.nombre} creada correctamente`);
         console.log(JSON.stringify(this.olympiad));
       })
-      .catch(err=>alert("Error al crear la olimpiada"));
+      .catch(err=>alert(err));
   }
   /**
    * metodo que permite volver hacia atrás
