@@ -63,7 +63,7 @@ public class OlimpiadaRestController {
 			nueva.setOrganizador(u);
 			
 			if(grade != null){
-				prueba = pruebaController.crearPrueba(grade,20);
+				prueba = pruebaController.crearPrueba(grade,10);
 			}
 			if(prueba == null)
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
