@@ -1,0 +1,27 @@
+<section id="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 push-s1">
+                    <div class="row">
+                         <div class="col s12 m7">
+                            <div class="row">
+                                <div class="signup-box">
+                                    <h1 class="login-title"> Editar Club </h1>
+                                    <form action="" class="signup-form" (ngSubmit)="onSubmit()">
+                                        <h2>Modifica la informaci&oacute;n de un club registrado</h2>
+                                        <div class="divider"></div>
+                                        <div class="section">
+                                            <input [(ngModel)]="club.nombreclub" name="nombre" type="text"  placeholder="Nombre" required="" class="validate"/>
+                                            <input [(ngModel)]="club.lema" name="lema" type="text" placeholder="Lema"  required ="" class="validate" />
+                                            
+                                            <button class="btn waves-effect waves-light btn-signup" type="submit"> Editar Club </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

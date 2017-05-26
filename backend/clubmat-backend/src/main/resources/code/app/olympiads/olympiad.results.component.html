@@ -1,0 +1,34 @@
+<div class="container center"> 
+    <h3>Resultados</h3>
+    <p>
+        Lista de los resultados actuales de la olimpiada de matemáticas.
+    </p>
+</div>
+<div class="row">
+    <div class="offset-m1 offset-l1 col s12 m10 l10"> 
+        <div> 
+            <table class ="responsive-table centered">
+                <thead class = "indigo accent-2 white-text">
+                <tr>
+                    <th data-field="institucion">Institución</th>
+                    <th data-field="nombre">Estudiante</th>
+                    <th data-field="club">Club</th>
+                    <th data-field="num_correctas">Número de preguntas correctas</th>
+                    <th data-field="tiempo">Duración</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr *ngFor="let r of results">
+                    <td>{{r.institucion}}</td>
+                    <td>{{r.nombreEstudiante}} {{r.apellidoEstudiante}}</td>
+                    <td>{{r.club}}</td>
+                    <td>{{r.numCorrectas}}</td>
+                    <td>{{r.duracion}}</td>
+                </tr>
+                </tbody>
+        
+            </table>
+        </div>
+    </div>
+</div>

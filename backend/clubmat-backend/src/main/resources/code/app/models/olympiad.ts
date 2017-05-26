@@ -1,4 +1,5 @@
 import { Usuario } from './usuario';
+import { Test } from './test';
 //import {} from '.';
 
 
@@ -18,7 +19,7 @@ export class Olimpiada {
   fecha: string;
   telefono: string;
   organizador: Usuario;
-  //idPrueba : Prueba;
+  idprueba : Test;
 
   initializeDeActivated(){
     this.activacion = ESTADO_DESACTIVADA;

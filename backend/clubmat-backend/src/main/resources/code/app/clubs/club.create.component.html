@@ -1,0 +1,31 @@
+<section id="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 push-s1">
+                    <div class="row">
+                         <div class="col s12 m7">
+                            <div class="row">
+                                <div class="signup-box">
+                                    <h1 class="login-title"> Registrar Club </h1>
+                                    <form action="" class="signup-form" (ngSubmit)="onSubmit()">
+                                        <h2>Crea un club para ClubMat</h2>
+                                        <div class="divider"></div>
+                                        <div class="section">
+                                            <input [(ngModel)]="club.nombreclub" name="nombre" type="text"  placeholder="Nombre" required="" class="validate"/>
+                                            <input [(ngModel)]="club.lema" name="lema" type="text" placeholder="Lema" required="" class="validate"/>
+                                            <h2>Institución a la que pertenece</h2>
+                                            <select class="browser-default" materialize="material_select" [(ngModel)]="institution" name="institucion">
+                                                <option *ngFor="let insti of institutions" [ngValue]="insti" >{{insti.nombre}}</option>
+                                            </select>
+                                            
+                                            <button class="btn waves-effect waves-light btn-signup" type="submit"> Crear Club </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.18, for Linux (x86_64)
 --
 -- Host: localhost    Database: clubmatdb
 -- ------------------------------------------------------
--- Server version	5.7.12
+-- Server version	5.7.18-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -34,7 +34,7 @@ CREATE TABLE `clubmatematicas` (
   PRIMARY KEY (`idclub`),
   KEY `FKm250e60bfw09cgfrx8g5fl7at` (`idinstitucion`),
   CONSTRAINT `FKm250e60bfw09cgfrx8g5fl7at` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `clubmatematicas` (
 
 LOCK TABLES `clubmatematicas` WRITE;
 /*!40000 ALTER TABLE `clubmatematicas` DISABLE KEYS */;
+INSERT INTO `clubmatematicas` VALUES (1,NULL,'Club javeriana','Club XYZ',NULL,1);
 /*!40000 ALTER TABLE `clubmatematicas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +89,7 @@ CREATE TABLE `institucion` (
   `telefono` int(11) DEFAULT NULL,
   `tipo` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`idinstitucion`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +98,7 @@ CREATE TABLE `institucion` (
 
 LOCK TABLES `institucion` WRITE;
 /*!40000 ALTER TABLE `institucion` DISABLE KEYS */;
+INSERT INTO `institucion` VALUES (1,'Bogota','Carrera 7 #40','Chapinero','Universidad Javeriana','Jorge Pelaez',3208320,'Privada');
 /*!40000 ALTER TABLE `institucion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +186,7 @@ CREATE TABLE `opcionpregunta` (
   PRIMARY KEY (`idopcionpregunta`),
   KEY `FK34jrlsus6qc1o2756233kpv5e` (`idpregunta`),
   CONSTRAINT `FK34jrlsus6qc1o2756233kpv5e` FOREIGN KEY (`idpregunta`) REFERENCES `pregunta` (`idpregunta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,6 +195,7 @@ CREATE TABLE `opcionpregunta` (
 
 LOCK TABLES `opcionpregunta` WRITE;
 /*!40000 ALTER TABLE `opcionpregunta` DISABLE KEYS */;
+INSERT INTO `opcionpregunta` VALUES (1,'','5565',1),(2,'\0','5420',1),(3,'\0','4563',1),(4,'\0','4568',1),(5,'','66',2),(6,'\0','50',2),(7,'\0','48',2),(8,'\0','32',2),(9,'','Santi: 55; Carlos: 55; Ambos: 110',3),(10,'\0','Santi: 50; Carlos: 55; Ambos: 105',3),(11,'\0','Santi: 50; Carlos: 50; Ambos: 100',3),(12,'\0','Santi: 55; Carlos: 55; Ambos: 150',3),(13,'','350',4),(14,'\0','333',4),(15,'\0','226',4),(16,'\0','126',4),(17,'','605',5),(18,'\0','600',5),(19,'\0','538',5),(20,'\0','705',5),(21,'','229',6),(22,'\0','231',6),(23,'\0','202',6),(24,'\0','213',6),(25,'','1.100',7),(26,'\0','1.000',7),(27,'\0','4.360',7),(28,'\0','953',7),(29,'','74',8),(30,'\0','70',8),(31,'\0','64',8),(32,'\0','54',8),(33,'','15',9),(34,'\0','20',9),(35,'\0','8',9),(36,'\0','2',9),(37,'','56',10),(38,'\0','63',10),(39,'\0','64',10),(40,'\0','58',10),(41,'','92',11),(42,'\0','90',11),(43,'\0','100',11),(44,'\0','99',11),(45,'','1617',12),(46,'\0','1517',12),(47,'\0','1421',12),(48,'\0','1418',12),(49,'','51',13),(50,'\0','50',13),(51,'\0','49',13),(52,'\0','25',13);
 /*!40000 ALTER TABLE `opcionpregunta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,7 +217,7 @@ CREATE TABLE `pregunta` (
   `tematica` varchar(50) DEFAULT NULL,
   `titulo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idpregunta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,6 +226,7 @@ CREATE TABLE `pregunta` (
 
 LOCK TABLES `pregunta` WRITE;
 /*!40000 ALTER TABLE `pregunta` DISABLE KEYS */;
+INSERT INTO `pregunta` VALUES (1,'No','Olimpiada','Fácil','4817 + 748','4',NULL,'suma','Ejercicio 1'),(2,'No','Olimpiada','Fácil','La tía de Amparo tiene un álbum con 34 fotos. La semana pasada colocó 15 fotos más y hoy ha colocado otras 17. ¿Cuántas fotos tiene en el álbum?','4',NULL,'suma','Ejercicio 2'),(3,'No','Olimpiada','Media','Santi tiene 20 canicas rojas y 35 azules. Carlos tiene 35 canicas rojas y 20 azules. ¿Cuántas canicas tiene Santi? ¿Y Carlos? ¿Cuántas canicas tienen entre los dos?','4',NULL,'suma','Ejercicio 1'),(4,'No','Olimpiada','Media','El congreso de los Diputados está constituido por 224 diputados y 126 diputadas. ¿Cuántas personas componen el Congreso?','4',NULL,'suma','Ejercicio 2'),(5,'No','Olimpiada','Media','En el mes de septiembre había 538 alumnos matriculados en el colegio La Matilla. Si durante el curso escolar se han incorporado 67 nuevos alumnos, ¿cuántos alumnos tiene el colegio?','4',NULL,'suma','Ejercicio 3'),(6,'No','Olimpiada','Fácil','472 - 243','4',NULL,'resta','Ejercicio 3'),(7,'No','Olimpiada','Fácil','En el estado de fútbol caben 2.780 personas. Se han vendido 1.680 entradas para el partido de hoy. ¿Cuántas entradas faltan para vender?','4',NULL,'resta','Ejercicio 2'),(8,'No','Olimpiada','Media','En la panadería han fabricado 610 barras de pan. Si a medio día ya habían vendido 536. ¿Cuántas barras quedan por vender?','4',NULL,'resta','Ejercicio'),(9,'No','Olimpiada','Fácil','3 x 5','4',NULL,'multiplicacion','Ejercicio'),(10,'No','Olimpiada','Fácil','8 x 7','4',NULL,'multiplicacion','Ejercicio'),(11,'No','Olimpiada','Fácil','124 - 32','4',NULL,'resta','Ejercicio'),(12,'No','Olimpiada','Media','231 x 7','4',NULL,'multiplicacion','Ejercicio'),(13,'No','Olimpiada','Alta','En la frutería tienen 255 kg de patatas. ¿Cuántos sacos de 5 kg pueden llenar?','4',NULL,'division','Ejercicio');
 /*!40000 ALTER TABLE `pregunta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,10 +244,7 @@ CREATE TABLE `prueba` (
   `numpreguntas` int(11) DEFAULT NULL,
   `tema` varchar(70) DEFAULT NULL,
   `tipoprueba` varchar(30) DEFAULT NULL,
-  `idusuario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idprueba`),
-  KEY `FK9d5l7w8ihpm7xeohicjpet4m8` (`idusuario`),
-  CONSTRAINT `FK9d5l7w8ihpm7xeohicjpet4m8` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`)
+  PRIMARY KEY (`idprueba`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -335,7 +336,7 @@ CREATE TABLE `usuario` (
   KEY `FKq07x6tn4w2um9pd2a884rpg1c` (`idinstitucion`),
   CONSTRAINT `FKipoc3l0qs0j5sxx3y34isdp7m` FOREIGN KEY (`idclub`) REFERENCES `clubmatematicas` (`idclub`),
   CONSTRAINT `FKq07x6tn4w2um9pd2a884rpg1c` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -344,7 +345,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Hernndez','Bogot','esteban','muti@mail.com','Esteban',NULL,'Administrador',1234,'esteban',NULL,NULL),(2,'Calle','Bogot','david','david@mail.com','David',NULL,'Administrador',1234,'david',NULL,NULL);
+INSERT INTO `usuario` VALUES (1,'Montanez','Bogota','miguel','miguel@mail.com','Miguel',NULL,'Administrador',123456,'miguel',1,NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -401,6 +402,36 @@ LOCK TABLES `usuariolimpiada` WRITE;
 /*!40000 ALTER TABLE `usuariolimpiada` DISABLE KEYS */;
 /*!40000 ALTER TABLE `usuariolimpiada` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarioprueba`
+--
+
+DROP TABLE IF EXISTS `usuarioprueba`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuarioprueba` (
+  `idusuarioprueba` int(11) NOT NULL AUTO_INCREMENT,
+  `idprueba` int(11) DEFAULT NULL,
+  `idusuario` int(11) DEFAULT NULL,
+  `num_correctas` int(11) DEFAULT NULL,
+  `time` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`idusuarioprueba`),
+  KEY `FKrfata18rpawkjefjbjwb2w5y9` (`idprueba`),
+  KEY `FKc9birtdq72u4959axw6pt93w8` (`idusuario`),
+  CONSTRAINT `FKc9birtdq72u4959axw6pt93w8` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`),
+  CONSTRAINT `FKrfata18rpawkjefjbjwb2w5y9` FOREIGN KEY (`idprueba`) REFERENCES `prueba` (`idprueba`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarioprueba`
+--
+
+LOCK TABLES `usuarioprueba` WRITE;
+/*!40000 ALTER TABLE `usuarioprueba` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuarioprueba` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -411,4 +442,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-23  3:12:37
+-- Dump completed on 2017-05-06 22:35:09

@@ -21,6 +21,8 @@ export class TakeTestComponent implements OnInit {
   inTest: boolean;
   allSelectedOptions: OpcionPregunta[];
   results: any;
+
+  time: number;
   
   constructor (private router: Router, private route: ActivatedRoute, private testService: TestService,
                private questionService: QuestionService) {
@@ -38,6 +40,8 @@ export class TakeTestComponent implements OnInit {
       this.testService.getTest(id)
         .then(test => {
           this.current = test;
+          this.time = new Date().getTime();
+          console.log(this.time);
           this.loadCurrentQuestion();
         })
         .catch(err => alert("Error al cargar el examen"));
@@ -51,6 +55,7 @@ export class TakeTestComponent implements OnInit {
   answerQuestion(option: OpcionPregunta){
     if(this.selectedOption == null){
       alert("Debe seleccionar una opción");
+      return;
     }
     this.allSelectedOptions.push(option);
     if(this.selectedOption.correcta == true){
@@ -74,7 +79,8 @@ export class TakeTestComponent implements OnInit {
     alert("Felicitaciones Terminaste la prueba");
     this.getTestResults();
     this.current.numcorrectas = this.correct;
-    this.testService.updateTest(this.current)
+    this.time = new Date().getTime() - this.time;
+    this.testService.updateTest(this.current,this.time)
       .then(test => console.log("Prueba Creada Exitosamente"))
       .catch(err => alert("Error al guardar los resultados de la prueba"))
     this.inTest = false;

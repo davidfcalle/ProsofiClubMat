@@ -1,8 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Olimpiada } from "../models/olympiad";
+import { Usuario } from "../models/usuario";
 import { OlympiadService } from "../services/olympiad.service";
+import { TestService } from "../services/test.service";
 
+interface MyObj{
+    value:boolean;    
+}
 
 @Component ({
     selector: 'olympiads',
@@ -12,8 +17,11 @@ export class OlympiadsComponent implements OnInit {
 
   olympiads: Olimpiada[];
   selectedOlympiad: Olimpiada;
+  users: Usuario[];
 
-  constructor(private olympiadService: OlympiadService, private router: Router){}
+  constructor(private olympiadService: OlympiadService, 
+    private router: Router,
+    private testService: TestService){}
 
   ngOnInit(){
     this.updateOlympiadList();
@@ -81,6 +89,51 @@ export class OlympiadsComponent implements OnInit {
       return;
     }
     this.router.navigate([`/olimpiadas/${this.selectedOlympiad.idolimpiada}/editar`])
+  }
+
+  startOlympiad(){
+    if(this.selectedOlympiad == null){
+     alert("Por favor seleccione una olimpada");
+     return;
+    }
+
+    if(this.selectedOlympiad.activacion == "Desactivada"){
+      alert("Olimpiada aún no está activa");
+      return;
+    }
+    let response:Object;
+    this.olympiadService.isSuscribe(this.selectedOlympiad.idolimpiada)
+        .then(res => {
+          let ress:MyObj = JSON.parse(<string> res);
+          if(ress.value){
+            // check if user already has taken the test
+            this.testService.hasTaken(this.selectedOlympiad.idprueba.idprueba)
+              .then(resp => {
+                let respp:MyObj = JSON.parse(<string> resp);
+                if(respp.value){
+                  alert("Usted ya tomó la prueba.");
+                }else{
+                  this.router.navigate(['/pruebas/'+this.selectedOlympiad.idprueba.idprueba+'/tomar']);
+                }
+              }, error => alert("Error"));
+          }else{
+            alert("Debe inscribirse a la olimpiada antes de poder iniciarla.");
+          }
+        }, error => alert("Error"));
+  }
+
+  viewResults(){
+    if(this.selectedOlympiad == null){
+     alert("Por favor seleccione una olimpada");
+     return;
+    }
+
+    if(this.selectedOlympiad.activacion == "Desactivada"){
+      alert("Olimpiada aún no está activa");
+      return;
+    }
+
+    this.router.navigate([`/olimpiadas/${this.selectedOlympiad.idolimpiada}/resultados`]);
   }
 
 }

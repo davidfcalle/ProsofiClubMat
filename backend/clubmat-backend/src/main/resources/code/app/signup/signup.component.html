@@ -26,6 +26,10 @@
                                                 <option selected disabled>Selecciona una opción</option>
                                                 <option *ngFor="let rol of roles" [value]="rol">{{rol}}</option>
                                             </select>
+                                            <h6>Club</h6>
+                                            <select class="browser-default" materialize="material_select" [(ngModel)]="club" name="club">
+                                                <option *ngFor="let c of clubs" [ngValue]="c" >{{c.nombre}}</option>
+                                            </select>
                                             <button class="btn waves-effect waves-light btn-signup" type="button" (click)="signup()" style="margin-top: 5%"> Crear Usuario </button>
                                         </div>
                                     </form>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 
-import { Olimpiada, ESTADO_ACTIVIDADA } from '../models/olympiad';
+import { Olimpiada, ESTADO_ACTIVIDADA, ESTADO_DESACTIVADA } from '../models/olympiad';
 import { Usuario } from '../models/usuario';
 
 import { OlympiadService } from '../services/olympiad.service';
@@ -41,6 +41,18 @@ export class OlympiadDetailComponent implements OnInit {
       .then(olympiad => {
         this.olympiad = olympiad;
         alert("olimpiada activada correctamente")
+      }).catch(err => {
+        alert("Error al activar la olimpiada")
+      })
+  }
+
+  desactivate(){
+    this.olympiad.activacion = ESTADO_DESACTIVADA;
+
+    this.olympiadService.updateOlympiad(this.olympiad)
+      .then(olympiad => {
+        this.olympiad = olympiad;
+        alert("olimpiada desactivada correctamente")
       }).catch(err => {
         alert("Error al activar la olimpiada")
       })

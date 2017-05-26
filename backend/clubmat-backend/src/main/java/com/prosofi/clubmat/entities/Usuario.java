@@ -79,13 +79,17 @@ public class Usuario implements Serializable {
     private Institucion idinstitucion;
     
     
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "idusuario",orphanRemoval = true)
+//    private List<Prueba> pruebaList;
+    
     @JsonIgnore
-    @OneToMany(mappedBy = "idusuario")
-    private List<Prueba> pruebaList;
+    @OneToMany(mappedBy = "idusuario", orphanRemoval = true)
+    private List<UsuarioPrueba> pruebasList;
     
     
     @JsonIgnore
-    @OneToMany(mappedBy = "idusuario")
+    @OneToMany(mappedBy = "idusuario",orphanRemoval = true)
     private List<UsuarioOlimpiada> usuarioOlimpiadaList;
    
 
@@ -137,7 +141,15 @@ public class Usuario implements Serializable {
         this.ciudad = ciudad;
     }
 
-    public String getRol() {
+    public List<UsuarioPrueba> getPruebasList() {
+		return pruebasList;
+	}
+
+	public void setPruebasList(List<UsuarioPrueba> pruebasList) {
+		this.pruebasList = pruebasList;
+	}
+
+	public String getRol() {
         return rol;
     }
 
@@ -204,17 +216,6 @@ public class Usuario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    
-    
-    @XmlTransient
-    public List<Prueba> getPruebaList() {
-        return pruebaList;
-    }
-
-    public void setPruebaList(List<Prueba> pruebaList) {
-        this.pruebaList = pruebaList;
     }
     
     public Institucion getIdinstitucion() {

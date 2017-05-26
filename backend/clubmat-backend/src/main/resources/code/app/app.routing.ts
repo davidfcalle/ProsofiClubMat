@@ -24,7 +24,11 @@ import { OlympiadsComponent } from './olympiads/olympiad.component';
 import { OlympiadCreateComponent } from './olympiads/olympiad.create.component';
 import { OlympiadDetailComponent } from './olympiads/olympiad.detail.component';
 import { OlympiadEditComponent } from './olympiads/olympiad.edit.component';
+import { OlympiadsResultComponent } from './olympiads/olympiad.results.component';
 
+import { ClubListComponent } from './clubs/club.component';
+import { ClubCreateComponent } from './clubs/club.create.component';
+import { ClubEditComponent } from './clubs/club.edit.component';
 
 import { SignupGuard } from './guards/signup.guard';
 import { AdminGuard } from './guards/admin.guard';
@@ -56,9 +60,24 @@ const appRoutes: Routes = [
     canActivate:  [AdminGuard]
   },
   {
+    path: 'clubes',
+    component: ClubListComponent,
+    canActivate:  [SignupGuard]
+  },
+  {
+    path: 'clubes/crear',
+    component: ClubCreateComponent,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: 'clubes/:id/editar',
+    component: ClubEditComponent,
+    canActivate: [AdminGuard]
+  },
+  {
     path: 'preguntas',
     component: QuestionsComponent,
-    canActivate:  [SignupGuard]
+    canActivate:  [AdminGuard]
   },
   {
     path: 'preguntas/crear',
@@ -108,7 +127,7 @@ const appRoutes: Routes = [
   {
     path: 'olimpiadas/:id/detalle',
     component: OlympiadDetailComponent,
-    canActivate:  [SignupGuard]
+    canActivate:  [AdminGuard]
   },
   {
     path: 'olimpiadas/:id/editar',
@@ -116,8 +135,13 @@ const appRoutes: Routes = [
     canActivate:  [AdminGuard]
   },
   {
+    path: 'olimpiadas/:id/resultados',
+    component: OlympiadsResultComponent,
+    canActivate: [SignupGuard]
+  },
+  {
     path: '',
-    redirectTo: '/pruebas',
+    redirectTo: '/olimpiadas',
     pathMatch: 'full'
   },
 

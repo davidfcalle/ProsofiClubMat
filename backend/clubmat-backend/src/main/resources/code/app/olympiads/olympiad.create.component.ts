@@ -12,6 +12,7 @@ import { OlympiadService } from '../services/olympiad.service';
 export class OlympiadCreateComponent {
 
   olympiad: Olimpiada;
+  grade: number;
 
   constructor(private olympiadService: OlympiadService){
     this.olympiad = new Olimpiada();
@@ -19,13 +20,14 @@ export class OlympiadCreateComponent {
   }
 
   onSubmit(){
-    this.olympiadService.createOlympiad(this.olympiad)
+    console.log(this.grade);
+    this.olympiadService.createOlympiad(this.olympiad,this.grade)
       .then(olympiad => {
         this.olympiad = olympiad; 
         alert(`Olimpiada ${this.olympiad.nombre} creada correctamente`);
         console.log(JSON.stringify(this.olympiad));
       })
-      .catch(err=>alert("Error al crear la olimpiada"));
+      .catch(err=>alert(err));
   }
   /**
    * metodo que permite volver hacia atrás
